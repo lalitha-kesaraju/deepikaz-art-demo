@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepika — Live Wedding Painting & Custom Art</title>
+<style>
+  :root{--ink:#23201c;--gold:#b98a2f;--gold2:#d4af5f;--cream:#faf5ea;--paper:#fffdf7;--rose:#7a2e35;--green:#1d7a3a;--wa:#075e54}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,'Times New Roman',serif;background:linear-gradient(165deg,#171310,#2b2118 55%,#1d1712);color:var(--ink);min-height:100vh;padding:18px 14px 40px}
+  .wrap{max-width:540px;margin:0 auto}
+  .demo-banner{background:#00000055;color:#ecd28f;border:1px dashed var(--gold);border-radius:10px;padding:8px 12px;font-size:13px;text-align:center;margin-bottom:14px;font-family:Arial,sans-serif}
+  .card{background:var(--cream);border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.5)}
+  .hero{padding:30px 22px 10px;text-align:center;background:radial-gradient(ellipse at top,#fffbeF,var(--cream))}
+  .hero .kicker{letter-spacing:3px;font-size:11px;color:var(--rose);font-family:Arial,sans-serif;font-weight:bold}
+  .hero h1{font-size:46px;line-height:1.02;margin-top:6px;color:var(--ink)}
+  .hero h1 span{font-style:italic;font-weight:normal;color:var(--gold);font-size:32px}
+  .hero p.tag{margin-top:10px;font-style:italic;color:#5c4b32;font-size:16.5px}
+  .stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:16px 14px 4px;font-family:Arial,sans-serif}
+  .stat{background:#fffaf0;border:1px solid #ecd9ac;border-radius:12px;padding:9px 13px;text-align:center;min-width:96px}
+  .stat b{display:block;font-size:17px;color:var(--rose)}
+  .stat span{font-size:11.5px;color:#7a5b23}
+  .services{padding:16px 22px 2px;display:flex;flex-direction:column;gap:10px}
+  .svc{background:var(--paper);border:1px solid #ecd9ac;border-radius:12px;padding:13px 15px;font-family:Arial,sans-serif}
+  .svc b{color:var(--rose);font-size:15.5px}
+  .svc p{font-size:13.5px;color:#5c4b32;margin-top:3px;line-height:1.5}
+  h2.sec{font-size:21px;color:var(--rose);padding:20px 22px 2px}
+  p.secsub{font-family:Arial,sans-serif;font-size:12.5px;color:#8a6a2f;padding:0 22px}
+  .sizes{margin:12px 22px 0;background:#fffaf0;border:1px solid #ecd9ac;border-radius:12px;padding:6px 16px;font-family:Arial,sans-serif}
+  .sizes .row{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px dotted #d9c28a;cursor:pointer}
+  .sizes .row:last-child{border-bottom:none}
+  .sizes .row.sel{background:#fdf0d2;font-weight:bold;border-radius:6px;padding-left:6px;padding-right:6px}
+  .sizes .row span:last-child{color:var(--rose);font-weight:bold}
+  form{padding:14px 22px 6px;font-family:Arial,sans-serif}
+  label{display:block;font-size:13px;font-weight:bold;margin:12px 0 5px;color:#5b3a16}
+  input,select{width:100%;padding:12px;border:1.5px solid #d9c28a;border-radius:10px;font-size:16px;background:#fff}
+  .grid2{display:flex;gap:10px}.grid2>div{flex:1}
+  button.cta{width:100%;margin:16px 0 8px;background:linear-gradient(90deg,var(--rose),#96505a);color:#ffe9b0;border:none;padding:15px;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer;letter-spacing:.5px}
+  .tiny{font-size:12px;color:#8a6a2f;text-align:center;padding:0 22px 18px;font-family:Arial,sans-serif}
+  .confirm{display:none;margin:0 22px 20px;background:#eaf7ee;border:1.5px solid var(--green);border-radius:12px;padding:16px;font-family:Arial,sans-serif}
+  .confirm h3{color:var(--green);margin-bottom:6px}
+  .confirm .id{font-size:20px;font-weight:bold;letter-spacing:1px}
+  .err{color:#b3261e;font-size:13px;margin-top:8px;display:none}
+  .panel{margin-top:16px;background:#fffdf6;border-radius:18px;padding:18px 20px;box-shadow:0 10px 30px rgba(0,0,0,.3);font-family:Arial,sans-serif}
+  .panel h2{font-family:Georgia,serif;color:var(--rose);font-size:20px}
+  .panel p.sub{font-size:12.5px;color:#777;margin:4px 0 12px}
+  .phone{max-width:330px;margin:0 auto;background:#0b141a;border-radius:22px;padding:10px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .wa-head{background:var(--wa);color:#fff;border-radius:14px 14px 0 0;padding:9px 12px;font-size:13.5px}
+  .wa-head b{display:block;font-size:14.5px}
+  .wa-body{background:#e5ddd5;border-radius:0 0 14px 14px;padding:12px 9px;min-height:290px;display:flex;flex-direction:column;gap:7px}
+  .msg{max-width:85%;padding:8px 10px;border-radius:9px;font-size:13.5px;line-height:1.45;white-space:pre-line;box-shadow:0 1px 1px rgba(0,0,0,.12)}
+  .msg.bot{background:#fff;align-self:flex-start}
+  .msg.me{background:#dcf8c6;align-self:flex-end}
+  .wa-btns{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;justify-content:center}
+  .wa-btns button{background:#fff;border:1.5px solid #25d366;color:var(--wa);border-radius:99px;padding:8px 13px;font-size:13px;font-weight:bold;cursor:pointer}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:12px}
+  th,td{border-bottom:1px solid #eee;padding:6px 4px;text-align:left}
+  .astats{display:flex;gap:10px;flex-wrap:wrap}
+  .astat{flex:1;min-width:100px;background:#fdf3dd;border:1px solid #ecd9ac;border-radius:10px;padding:10px;text-align:center}
+  .astat b{display:block;font-size:19px;color:var(--rose)}
+  .astat span{font-size:11.5px;color:#7a5b23}
+  #chatFab{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle at 32% 28%,#96505a,var(--rose) 70%);cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.4);z-index:50;display:flex;align-items:center;justify-content:center;padding:0}
+  #chatFab::after{content:'';position:absolute;top:1px;right:1px;width:13px;height:13px;border-radius:50%;background:#25d366;border:2px solid var(--cream)}
+  #chatPanel{position:fixed;right:18px;bottom:86px;width:min(92vw,350px);background:#fff;border-radius:16px;box-shadow:0 16px 44px rgba(0,0,0,.45);display:none;flex-direction:column;overflow:hidden;z-index:50;font-family:Arial,sans-serif}
+  #chatPanel.open{display:flex}
+  .chat-head{background:linear-gradient(90deg,var(--rose),#96505a);color:#ffe9b0;padding:12px 14px;display:flex;align-items:center;gap:10px}
+  .chat-head b{font-size:15px}.chat-head span{display:block;font-size:11.5px;opacity:.85}
+  #chatMsgs{padding:12px;display:flex;flex-direction:column;gap:7px;max-height:300px;overflow-y:auto;background:#fdf8ec}
+  .cmsg{max-width:86%;padding:8px 11px;border-radius:12px;font-size:13.5px;line-height:1.45;white-space:pre-line}
+  .cmsg.bot{background:#fff;border:1px solid #ecd9ac;align-self:flex-start}
+  .cmsg.me{background:var(--rose);color:#ffe9b0;align-self:flex-end}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 10px;background:#fdf8ec}
+  .chips button{background:#fff;border:1.5px solid var(--gold);color:var(--rose);border-radius:99px;padding:6px 11px;font-size:12.5px;cursor:pointer;font-weight:bold}
+  .chat-in{display:flex;border-top:1px solid #eee}
+  .chat-in input{flex:1;border:none;padding:12px;font-size:14.5px;outline:none}
+  .chat-in button{background:var(--rose);color:#ffe9b0;border:none;padding:0 17px;font-size:15px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="demo-banner">DEMO built by SA Technologies — sample data & demo prices, no real payments. One link replaces "DM to enquire".</div>
+  <div class="card">
+    <div class="hero">
+      <div class="kicker">DEEPIKAZ.ART</div>
+      <h1>DEEPIKA <span>Live Painting Artist</span></h1>
+      <p class="tag">Your wedding, painted live — a moment on canvas, forever.</p>
+      <div class="stats">
+        <div class="stat"><b>60+</b><span>events painted</span></div>
+        <div class="stat"><b>6+ yrs</b><span>experience</span></div>
+        <div class="stat"><b>Worldwide</b><span>travels for events</span></div>
+      </div>
+    </div>
+
+    <div class="services">
+      <div class="svc"><b>🎉 Live Event Painting</b><p>Weddings & events painted live in front of your guests — entertainment and a timeless keepsake in one. South India's pioneering live wedding painting artist.</p></div>
+      <div class="svc"><b>🖼️ Custom Paintings</b><p>Portraits & family paintings from your photos, on canvas — like the family-of-5 and couple portraits on her Instagram. Premium pieces go up to ₹50,000.</p></div>
+      <div class="svc"><b>💻 Pre-recorded Workshop</b><p>Learn at your own pace. In the live version: pay online, get instant access — no DM back-and-forth.</p></div>
+    </div>
+
+    <h2 class="sec">Size & price guide</h2>
+    <p class="secsub">Tap a size to select it for your enquiry. Demo prices for illustration — Deepika confirms the final quote.</p>
+    <div class="sizes" id="sizeList">
+      <div class="row" data-size="A4 (8×12 in)"><span>A4 · 8×12 in — keepsake</span><span>from ₹4,999</span></div>
+      <div class="row" data-size="A3 (12×16 in)"><span>A3 · 12×16 in</span><span>from ₹9,999</span></div>
+      <div class="row sel" data-size="A2 (16×24 in)"><span>A2 · 16×24 in — most popular</span><span>from ₹19,999</span></div>
+      <div class="row" data-size="24×36 in"><span>24×36 in — statement piece</span><span>from ₹34,999</span></div>
+      <div class="row" data-size="36×48 in"><span>36×48 in — grand canvas</span><span>from ₹49,999</span></div>
+    </div>
+
+    <h2 class="sec">Check your date / enquire</h2>
+    <p class="secsub">Wedding dates book out fast — the live version checks Deepika's calendar before confirming.</p>
+    <form id="enqForm">
+      <label>Your name</label>
+      <input id="name" placeholder="e.g. Priya Sharma" autocomplete="name">
+      <label>WhatsApp number</label>
+      <input id="phone" placeholder="10-digit mobile" inputmode="numeric" autocomplete="tel">
+      <div class="grid2">
+        <div><label>Service</label>
+          <select id="service">
+            <option>Live wedding painting</option>
+            <option>Live event painting (other)</option>
+            <option>Custom painting</option>
+            <option>Pre-recorded workshop</option>
+          </select></div>
+        <div><label>Event date</label>
+          <input id="evdate" type="date"></div>
+      </div>
+      <label>City / venue</label>
+      <input id="venue" placeholder="e.g. Chennai — The Leela Palace">
+      <div class="err" id="err"></div>
+      <button class="cta" type="submit">Send enquiry →</button>
+    </form>
+    <div class="tiny">In the live version this enquiry lands instantly on Deepika's WhatsApp & dashboard — with an automatic reply to you. No enquiry gets lost in DM requests again.</div>
+
+    <div class="confirm" id="confirm">
+      <h3>✅ Enquiry received (demo)</h3>
+      <div class="id" id="enqId"></div>
+      <p id="confirmText" style="margin-top:6px;font-size:14px"></p>
+      <p style="font-size:13px;margin-top:6px">The live version also holds your date with an advance payment link, and sends both sides a confirmation on WhatsApp.</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>WhatsApp bot — try it like a client</h2>
+    <p class="sub">In the live version this bot sits on Deepika's own WhatsApp. Clients ask about prices, sizes and dates — the bot answers and captures the enquiry. Tap the buttons:</p>
+    <div class="phone">
+      <div class="wa-head"><b>Deepikaz Art</b>business account · online</div>
+      <div class="wa-body" id="waBody"></div>
+    </div>
+    <div class="wa-btns" id="waBtns">
+      <button data-wa="hi">👋 Say Hi</button>
+      <button data-wa="price">💰 Painting prices</button>
+      <button data-wa="wedding">💍 Wedding booking</button>
+      <button data-wa="workshop">💻 Workshop</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Artist view — what Deepika sees</h2>
+    <p class="sub">Every enquiry in one list — service, date, city — instead of scattered DM threads. Follow-ups go out automatically.</p>
+    <div class="astats">
+      <div class="astat"><b id="stCount">0</b><span>enquiries</span></div>
+      <div class="astat"><b id="stWed">0</b><span>wedding enquiries</span></div>
+      <div class="astat"><b id="stCities">0</b><span>cities</span></div>
+    </div>
+    <table><thead><tr><th>Enquiry</th><th>Name</th><th>Service</th><th>Date / City</th></tr></thead><tbody id="rows"></tbody></table>
+  </div>
+</div>
+
+<script>
+const SEED = [
+  {id:'DA-2201', name:'Demo Client 1', service:'Live wedding painting', date:'2026-12-05', venue:'Chennai', size:'A2 (16×24 in)'},
+  {id:'DA-2202', name:'Demo Client 2', service:'Custom painting', date:'', venue:'Bengaluru', size:'24×36 in'},
+  {id:'DA-2203', name:'Demo Client 3', service:'Live wedding painting', date:'2027-01-18', venue:'Coimbatore', size:'A2 (16×24 in)'}
+];
+let enquiries = JSON.parse(localStorage.getItem('da_enq') || 'null') || SEED.slice();
+let selSize = 'A2 (16×24 in)';
+document.getElementById('sizeList').addEventListener('click', e => {
+  const row = e.target.closest('.row');
+  if(!row) return;
+  document.querySelectorAll('#sizeList .row').forEach(r => r.classList.remove('sel'));
+  row.classList.add('sel'); selSize = row.getAttribute('data-size');
+});
+function render(){
+  document.getElementById('stCount').textContent = enquiries.length;
+  document.getElementById('stWed').textContent = enquiries.filter(x => x.service.toLowerCase().includes('wedding')).length;
+  document.getElementById('stCities').textContent = new Set(enquiries.map(x => (x.venue || '').split('—')[0].trim()).filter(Boolean)).size;
+  document.getElementById('rows').innerHTML = enquiries.map(x =>
+    '<tr><td>' + x.id + '</td><td>' + x.name + '</td><td>' + x.service + '</td><td>' + (x.date || '—') + ' · ' + (x.venue || '—') + '</td></tr>').join('');
+  localStorage.setItem('da_enq', JSON.stringify(enquiries));
+}
+document.getElementById('enqForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.replace(/\D/g,'').slice(-10);
+  const service = document.getElementById('service').value;
+  const date = document.getElementById('evdate').value;
+  const venue = document.getElementById('venue').value.trim();
+  const err = document.getElementById('err');
+  if(name.length < 2){ err.textContent = 'Please enter your name.'; err.style.display='block'; return; }
+  if(phone.length !== 10){ err.textContent = 'Please enter a valid 10-digit WhatsApp number.'; err.style.display='block'; return; }
+  err.style.display = 'none';
+  const id = 'DA-' + Math.floor(1000 + Math.random()*9000);
+  enquiries.push({id, name, service, date, venue, size: selSize});
+  render();
+  const c = document.getElementById('confirm');
+  c.style.display = 'block';
+  document.getElementById('enqId').textContent = id;
+  document.getElementById('confirmText').textContent = name + ' · ' + service + ' · Size ' + selSize + (date ? ' · ' + date : '') + (venue ? ' · ' + venue : '');
+  c.scrollIntoView({behavior:'smooth'});
+});
+render();
+
+/* ---------- WhatsApp bot simulator ---------- */
+const waBody = document.getElementById('waBody');
+function waAdd(text, who){
+  const d = document.createElement('div');
+  d.className = 'msg ' + who; d.textContent = text;
+  waBody.appendChild(d); waBody.scrollTop = waBody.scrollHeight;
+}
+function waBot(text){ setTimeout(() => waAdd(text, 'bot'), 450); }
+document.getElementById('waBtns').addEventListener('click', e => {
+  const key = e.target.getAttribute('data-wa');
+  if(!key) return;
+  if(key === 'hi'){ waAdd('Hi', 'me'); waBot('Hello! Welcome to Deepikaz Art 🎨\nI\'m Deepika\'s assistant. Ask me about:\n💍 Live wedding painting\n🖼️ Custom painting prices & sizes\n💻 The pre-recorded workshop\nTap a button below!'); }
+  if(key === 'price'){ waAdd('Painting prices', 'me'); waBot('🖼️ Custom painting sizes:\nA4 from ₹4,999 · A3 from ₹9,999\nA2 from ₹19,999 (most popular)\n24×36 in from ₹34,999 · 36×48 in from ₹49,999\nPremium pieces go up to ₹50,000. Final quote depends on photo & detail — send your photo here and I\'ll get your exact quote. (demo prices)'); }
+  if(key === 'wedding'){ waAdd('Wedding booking', 'me'); waBot('💍 Wonderful! Wedding dates book out fast.\nShare your wedding date + city here — I\'ll check Deepika\'s calendar instantly and hold the date with an advance. She paints live at weddings across India & worldwide ✈️'); }
+  if(key === 'workshop'){ waAdd('Workshop', 'me'); waBot('💻 The pre-recorded workshop lets you learn at your own pace.\nIn the live version you pay here in chat and get instant access — no waiting for a DM reply.'); }
+});
+waAdd('Hello! Tap "Say Hi" below to start — just like a client would.', 'bot');
+</script>
+
+<button id="chatFab" title="Chat with Deepika's assistant" aria-label="Chat with Deepika's assistant">
+  <svg width="34" height="34" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <path d="M24 5C13.5 5 5 13 5 23c0 5.4 4.1 8.6 8.2 8.6 1.9 0 2.9 1 4.6 1 1.2 0 2.1.9 3.3.9C33.6 33.6 43 31.4 43 21.9 43 12.6 34.5 5 24 5Z" fill="#faf5ea" opacity="0.16"/>
+    <path d="M24 6.5c-9.3 0-17.5 6.9-17.5 16 0 4.6 3.4 7.3 7 7.3 1.8 0 2.9.2 4.2 1.1 1 .7 1.9 1.1 3.4 1.1 10.3 0 20.4-2.5 20.4-10.7C41.5 13 33.3 6.5 24 6.5Z" stroke="#e9c46a" stroke-width="2.2"/>
+    <circle cx="16.5" cy="16" r="3.1" fill="#e9c46a"/>
+    <circle cx="25" cy="12.5" r="3.1" fill="#d4af5f"/>
+    <circle cx="33" cy="16.5" r="3.1" fill="#faf5ea"/>
+    <circle cx="14.5" cy="24.5" r="3.1" fill="#c96f4a"/>
+    <path d="M29 29.5c2.5-1.8 5.5-2.3 8-1.5" stroke="#e9c46a" stroke-width="2.2" stroke-linecap="round"/>
+  </svg>
+</button>
+<div id="chatPanel">
+  <div class="chat-head">
+    <svg width="22" height="22" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="17" stroke="#e9c46a" stroke-width="2.4"/><circle cx="17" cy="17" r="3.2" fill="#e9c46a"/><circle cx="26" cy="13.5" r="3.2" fill="#d4af5f"/><circle cx="33" cy="19" r="3.2" fill="#faf5ea"/><circle cx="14.5" cy="26" r="3.2" fill="#c96f4a"/><path d="M27 33c3.5-2.7 8-3.4 11.5-2" stroke="#e9c46a" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <div><b>Deepika's Assistant</b><span>Website chatbot · replies instantly</span></div>
+  </div>
+  <div id="chatMsgs"></div>
+  <div class="chips" id="chatChips">
+    <button>Wedding price?</button>
+    <button>Custom painting cost?</button>
+    <button>How to book?</button>
+    <button>Do you travel?</button>
+    <button>Workshop details</button>
+    <button>Contact</button>
+  </div>
+  <div class="chat-in">
+    <input id="chatText" placeholder="Ask about paintings, weddings…">
+    <button id="chatSend">➤</button>
+  </div>
+</div>
+
+<script>
+/* ---------- Website chatbot ---------- */
+const panel = document.getElementById('chatPanel');
+const msgs = document.getElementById('chatMsgs');
+let chatOpened = false;
+document.getElementById('chatFab').addEventListener('click', () => {
+  panel.classList.toggle('open');
+  if(!chatOpened){
+    chatOpened = true;
+    cBot('Hi! I\'m Deepika\'s assistant 🎨 Ask me about live wedding painting, custom painting prices, or the workshop — or tap a question below.');
+  }
+});
+function cAdd(text, who){
+  const d = document.createElement('div');
+  d.className = 'cmsg ' + who; d.textContent = text;
+  msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+}
+function cBot(text){ setTimeout(() => cAdd(text, 'bot'), 350); }
+function answer(q){
+  const t = q.toLowerCase();
+  if(t.includes('wedding') && (t.includes('price') || t.includes('cost') || t.includes('charge')))
+    return '💍 Live wedding painting is quoted by canvas size & city — A2 (16×24 in) is the most popular. Share your date + city in the enquiry form above and Deepika confirms availability + exact quote. Dates book out fast!';
+  if(t.includes('price') || t.includes('cost') || t.includes('custom'))
+    return '🖼️ Custom paintings (demo prices): A4 from ₹4,999 · A3 from ₹9,999 · A2 from ₹19,999 · 24×36 in from ₹34,999 · 36×48 in from ₹49,999. Premium pieces go up to ₹50,000. Final quote depends on your photo & detail.';
+  if(t.includes('book') || t.includes('enquire') || t.includes('order') || t.includes('how'))
+    return '📝 Use the enquiry form on this page — name, WhatsApp, service, date, city. In the live version Deepika gets it instantly on WhatsApp and your date can be held with an advance.';
+  if(t.includes('travel') || t.includes('city') || t.includes('come') || t.includes('location') || t.includes('worldwide'))
+    return '✈️ Yes — Deepika paints at weddings across India and worldwide. Mention your city in the enquiry and travel is arranged with the booking.';
+  if(t.includes('workshop') || t.includes('learn') || t.includes('course') || t.includes('class'))
+    return '💻 The pre-recorded workshop lets you learn at your own pace. In the live version you pay online and get instant access — no DM needed.';
+  if(t.includes('contact') || t.includes('email') || t.includes('phone') || t.includes('call'))
+    return '✉️ You can reach Deepika at deepikaz.art24@gmail.com — or just send the enquiry form here, it reaches her instantly.';
+  if(t.includes('experience') || t.includes('events') || t.includes('who'))
+    return '🎨 Deepika (DFA, ADFA, BFA) has 6+ years in the art field and has painted at 60+ events — she is known as South India\'s pioneering live wedding painting artist.';
+  if(t.includes('hi') || t.includes('hello') || t.includes('hey'))
+    return 'Hello! 🙏 Ask me about wedding painting, custom painting prices, travel, or the workshop.';
+  return 'I can help with wedding painting, custom painting prices & sizes, travel, and the workshop. For anything else, email deepikaz.art24@gmail.com — in the live version, Deepika takes over the chat here seamlessly.';
+}
+function askChat(q){
+  if(!q.trim()) return;
+  cAdd(q, 'me'); cBot(answer(q));
+}
+document.getElementById('chatSend').addEventListener('click', () => {
+  const inp = document.getElementById('chatText');
+  askChat(inp.value); inp.value = '';
+});
+document.getElementById('chatText').addEventListener('keydown', e => {
+  if(e.key === 'Enter'){ const inp = e.target; askChat(inp.value); inp.value = ''; }
+});
+document.getElementById('chatChips').addEventListener('click', e => {
+  if(e.target.tagName === 'BUTTON') askChat(e.target.textContent);
+});
+</script>
+</body>
+</html>
