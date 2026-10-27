@@ -3,47 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deepika — Live Wedding Painting & Custom Art</title>
+<title>Deepika — Live Wedding Painting &amp; Custom Art | Deepikaz.Art</title>
 <style>
-  :root{--ink:#23201c;--gold:#b98a2f;--gold2:#d4af5f;--cream:#faf5ea;--paper:#fffdf7;--rose:#7a2e35;--green:#1d7a3a;--wa:#075e54}
+  :root{--ink:#23201c;--gold:#b98a2f;--gold2:#d4af5f;--cream:#faf5ea;--paper:#fffdf7;--rose:#7a2e35;--rose2:#96505a;--green:#1d7a3a;--wa:#075e54}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Georgia,'Times New Roman',serif;background:linear-gradient(165deg,#171310,#2b2118 55%,#1d1712);color:var(--ink);min-height:100vh;padding:18px 14px 40px}
-  .wrap{max-width:540px;margin:0 auto}
-  .demo-banner{background:#00000055;color:#ecd28f;border:1px dashed var(--gold);border-radius:10px;padding:8px 12px;font-size:13px;text-align:center;margin-bottom:14px;font-family:Arial,sans-serif}
+  html{scroll-behavior:smooth}
+  body{font-family:Georgia,'Times New Roman',serif;background:linear-gradient(165deg,#171310,#2b2118 55%,#1d1712);color:var(--ink);min-height:100vh;padding:14px 12px 46px}
+  .wrap{max-width:920px;margin:0 auto}
+  .demo-banner{background:rgba(0,0,0,.45);color:#ecd28f;border:1px dashed var(--gold);border-radius:10px;padding:8px 12px;font-size:12.5px;text-align:center;margin-bottom:12px;font-family:Arial,sans-serif;line-height:1.5}
   .card{background:var(--cream);border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.5)}
-  .hero{padding:30px 22px 10px;text-align:center;background:radial-gradient(ellipse at top,#fffbeF,var(--cream))}
+  /* ---------- Tabs ---------- */
+  .tabnav{position:sticky;top:0;z-index:40;display:flex;gap:6px;overflow-x:auto;padding:10px 12px;background:#fff8e8;border-bottom:1.5px solid #ecd9ac;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .tabnav::-webkit-scrollbar{display:none}
+  .tabnav button{flex:0 0 auto;background:var(--paper);border:1.5px solid #d9c28a;color:#5c4b32;border-radius:99px;padding:9px 15px;font-family:Arial,sans-serif;font-size:13.5px;font-weight:bold;cursor:pointer;white-space:nowrap}
+  .tabnav button.active{background:linear-gradient(90deg,var(--rose),var(--rose2));color:#ffe9b0;border-color:var(--rose)}
+  .tabpage{display:none;padding-bottom:22px}
+  .tabpage.active{display:block}
+  /* ---------- Hero / shared ---------- */
+  .hero{padding:32px 22px 8px;text-align:center;background:radial-gradient(ellipse at top,#fffbef,var(--cream))}
   .hero .kicker{letter-spacing:3px;font-size:11px;color:var(--rose);font-family:Arial,sans-serif;font-weight:bold}
-  .hero h1{font-size:46px;line-height:1.02;margin-top:6px;color:var(--ink)}
-  .hero h1 span{font-style:italic;font-weight:normal;color:var(--gold);font-size:32px}
+  .hero h1{font-size:48px;line-height:1.02;margin-top:6px;color:var(--ink)}
+  .hero h1 span{font-style:italic;font-weight:normal;color:var(--gold);font-size:32px;display:block}
   .hero p.tag{margin-top:10px;font-style:italic;color:#5c4b32;font-size:16.5px}
   .stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:16px 14px 4px;font-family:Arial,sans-serif}
-  .stat{background:#fffaf0;border:1px solid #ecd9ac;border-radius:12px;padding:9px 13px;text-align:center;min-width:96px}
+  .stat{background:#fffaf0;border:1px solid #ecd9ac;border-radius:12px;padding:9px 13px;text-align:center;min-width:100px}
   .stat b{display:block;font-size:17px;color:var(--rose)}
   .stat span{font-size:11.5px;color:#7a5b23}
-  .services{padding:16px 22px 2px;display:flex;flex-direction:column;gap:10px}
-  .svc{background:var(--paper);border:1px solid #ecd9ac;border-radius:12px;padding:13px 15px;font-family:Arial,sans-serif}
+  h2.sec{font-size:22px;color:var(--rose);padding:22px 22px 2px}
+  p.secsub{font-family:Arial,sans-serif;font-size:13px;color:#8a6a2f;padding:0 22px;line-height:1.55}
+  .services{padding:16px 22px 2px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+  .svc{background:var(--paper);border:1px solid #ecd9ac;border-radius:12px;padding:15px;font-family:Arial,sans-serif}
+  .svc .ic{width:40px;height:40px;border-radius:50%;background:#fdf0d2;border:1.5px solid var(--gold2);display:flex;align-items:center;justify-content:center;margin-bottom:8px}
   .svc b{color:var(--rose);font-size:15.5px}
-  .svc p{font-size:13.5px;color:#5c4b32;margin-top:3px;line-height:1.5}
-  h2.sec{font-size:21px;color:var(--rose);padding:20px 22px 2px}
-  p.secsub{font-family:Arial,sans-serif;font-size:12.5px;color:#8a6a2f;padding:0 22px}
-  .sizes{margin:12px 22px 0;background:#fffaf0;border:1px solid #ecd9ac;border-radius:12px;padding:6px 16px;font-family:Arial,sans-serif}
-  .sizes .row{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px dotted #d9c28a;cursor:pointer}
-  .sizes .row:last-child{border-bottom:none}
-  .sizes .row.sel{background:#fdf0d2;font-weight:bold;border-radius:6px;padding-left:6px;padding-right:6px}
-  .sizes .row span:last-child{color:var(--rose);font-weight:bold}
-  form{padding:14px 22px 6px;font-family:Arial,sans-serif}
+  .svc p{font-size:13.5px;color:#5c4b32;margin-top:3px;line-height:1.55}
+  .steps{margin:14px 22px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;font-family:Arial,sans-serif}
+  .step{background:#fffaf0;border:1px solid #ecd9ac;border-radius:12px;padding:13px}
+  .step b{display:flex;align-items:center;gap:8px;color:var(--rose);font-size:14.5px}
+  .step .n{width:24px;height:24px;border-radius:50%;background:var(--rose);color:#ffe9b0;display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex:0 0 auto}
+  .step p{font-size:13px;color:#5c4b32;margin-top:6px;line-height:1.55}
+  .game-banner{margin:20px 22px 4px;background:linear-gradient(120deg,var(--rose),var(--rose2) 60%,#b06a5a);border-radius:16px;padding:20px;color:#fff8e6;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;box-shadow:0 10px 26px rgba(122,46,53,.35)}
+  .game-banner h3{font-size:22px;color:#ffe9b0}
+  .game-banner p{font-family:Arial,sans-serif;font-size:13.5px;line-height:1.55;margin-top:5px;max-width:520px}
+  .btn{display:inline-block;background:linear-gradient(90deg,var(--gold),var(--gold2));color:#2b1d05;border:none;padding:13px 22px;border-radius:12px;font-size:15.5px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;letter-spacing:.3px}
+  .btn.secondary{background:var(--paper);border:1.5px solid var(--gold);color:var(--rose)}
+  .btn.small{padding:9px 15px;font-size:13.5px;border-radius:10px}
+  /* ---------- Gallery ---------- */
+  .chips-row{display:flex;flex-wrap:wrap;gap:7px;padding:12px 22px 0;font-family:Arial,sans-serif}
+  .chips-row button{background:#fff;border:1.5px solid var(--gold);color:var(--rose);border-radius:99px;padding:7px 13px;font-size:13px;font-weight:bold;cursor:pointer}
+  .chips-row button.active{background:var(--rose);color:#ffe9b0;border-color:var(--rose)}
+  .note{margin:14px 22px 0;background:#fdf0d2;border:1px solid #ecd9ac;border-radius:12px;padding:12px 15px;font-family:Arial,sans-serif;font-size:13px;color:#5c4b32;line-height:1.55}
+  .gallery-grid{padding:14px 22px 4px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+  .art-card{background:var(--paper);border:1px solid #ecd9ac;border-radius:14px;overflow:hidden;font-family:Arial,sans-serif}
+  .art-card.hidden{display:none}
+  .art{height:150px;position:relative;display:flex;align-items:center;justify-content:center}
+  .art svg{opacity:.55}
+  .art .ph-label{position:absolute;left:8px;right:8px;bottom:8px;background:rgba(255,253,247,.92);border:1px dashed var(--gold);border-radius:8px;font-size:11px;color:#7a5b23;text-align:center;padding:5px 6px;line-height:1.4}
+  .art-card .meta{padding:10px 12px}
+  .art-card .meta b{color:var(--rose);font-size:14px;display:block}
+  .art-card .meta span{font-size:12px;color:#8a6a2f}
+  .g1{background:linear-gradient(140deg,#f3d9a4,#c96f4a)} .g2{background:linear-gradient(140deg,#e8b4b8,#7a2e35)}
+  .g3{background:linear-gradient(140deg,#f7ead1,#b98a2f)} .g4{background:linear-gradient(140deg,#a8c3a0,#3f5d45)}
+  .g5{background:linear-gradient(140deg,#d9c7e7,#5d4a7a)} .g6{background:linear-gradient(140deg,#f2c9a0,#96505a)}
+  .g7{background:linear-gradient(140deg,#bfe0dd,#2f6f6a)} .g8{background:linear-gradient(140deg,#f6df8e,#c96f4a)}
+  .g9{background:linear-gradient(140deg,#e7a6c0,#7a2e35)} .g10{background:linear-gradient(140deg,#cfe3f7,#3a5d8a)}
+  .g11{background:linear-gradient(140deg,#f3e2c7,#8a6a2f)} .g12{background:linear-gradient(140deg,#d8e6b0,#6a7a2f)}
+  /* ---------- Prices ---------- */
+  .price-block{margin:14px 22px 0;background:#fffaf0;border:1px solid #ecd9ac;border-radius:12px;padding:8px 16px 12px;font-family:Arial,sans-serif}
+  .price-block h3{color:var(--rose);font-family:Georgia,serif;font-size:18px;padding:10px 0 2px}
+  .price-block .row{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:9px 6px;border-bottom:1px dotted #d9c28a;cursor:pointer;border-radius:6px}
+  .price-block .row:last-child{border-bottom:none}
+  .price-block .row.sel{background:#fdf0d2;font-weight:bold}
+  .price-block .row span:last-child{color:var(--rose);font-weight:bold;white-space:nowrap}
+  .price-block .row .pop{font-size:10.5px;background:var(--rose);color:#ffe9b0;border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:middle}
+  .sel-line{margin:12px 22px 0;font-family:Arial,sans-serif;font-size:13.5px;color:#5c4b32;background:#eaf7ee;border:1px solid #bfe3c8;border-radius:10px;padding:10px 14px}
+  /* ---------- Forms / panels ---------- */
+  form{padding:8px 22px 6px;font-family:Arial,sans-serif}
   label{display:block;font-size:13px;font-weight:bold;margin:12px 0 5px;color:#5b3a16}
-  input,select{width:100%;padding:12px;border:1.5px solid #d9c28a;border-radius:10px;font-size:16px;background:#fff}
-  .grid2{display:flex;gap:10px}.grid2>div{flex:1}
-  button.cta{width:100%;margin:16px 0 8px;background:linear-gradient(90deg,var(--rose),#96505a);color:#ffe9b0;border:none;padding:15px;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer;letter-spacing:.5px}
-  .tiny{font-size:12px;color:#8a6a2f;text-align:center;padding:0 22px 18px;font-family:Arial,sans-serif}
+  input,select{width:100%;padding:12px;border:1.5px solid #d9c28a;border-radius:10px;font-size:16px;background:#fff;font-family:Arial,sans-serif}
+  .grid2{display:flex;gap:10px;flex-wrap:wrap}.grid2>div{flex:1;min-width:150px}
+  button.cta{width:100%;margin:16px 0 8px;background:linear-gradient(90deg,var(--rose),var(--rose2));color:#ffe9b0;border:none;padding:15px;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer;letter-spacing:.5px;font-family:Arial,sans-serif}
+  .tiny{font-size:12px;color:#8a6a2f;text-align:center;padding:0 22px 18px;font-family:Arial,sans-serif;line-height:1.55}
   .confirm{display:none;margin:0 22px 20px;background:#eaf7ee;border:1.5px solid var(--green);border-radius:12px;padding:16px;font-family:Arial,sans-serif}
   .confirm h3{color:var(--green);margin-bottom:6px}
   .confirm .id{font-size:20px;font-weight:bold;letter-spacing:1px}
   .err{color:#b3261e;font-size:13px;margin-top:8px;display:none}
-  .panel{margin-top:16px;background:#fffdf6;border-radius:18px;padding:18px 20px;box-shadow:0 10px 30px rgba(0,0,0,.3);font-family:Arial,sans-serif}
+  .panel{margin:16px 22px 0;background:#fffdf6;border:1px solid #ecd9ac;border-radius:16px;padding:18px 20px;font-family:Arial,sans-serif}
   .panel h2{font-family:Georgia,serif;color:var(--rose);font-size:20px}
-  .panel p.sub{font-size:12.5px;color:#777;margin:4px 0 12px}
+  .panel p.sub{font-size:12.5px;color:#777;margin:4px 0 12px;line-height:1.55}
   .phone{max-width:330px;margin:0 auto;background:#0b141a;border-radius:22px;padding:10px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
   .wa-head{background:var(--wa);color:#fff;border-radius:14px 14px 0 0;padding:9px 12px;font-size:13.5px}
   .wa-head b{display:block;font-size:14.5px}
@@ -51,188 +97,375 @@
   .msg{max-width:85%;padding:8px 10px;border-radius:9px;font-size:13.5px;line-height:1.45;white-space:pre-line;box-shadow:0 1px 1px rgba(0,0,0,.12)}
   .msg.bot{background:#fff;align-self:flex-start}
   .msg.me{background:#dcf8c6;align-self:flex-end}
-  .wa-btns{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;justify-content:center}
-  .wa-btns button{background:#fff;border:1.5px solid #25d366;color:var(--wa);border-radius:99px;padding:8px 13px;font-size:13px;font-weight:bold;cursor:pointer}
+  .wa-btns{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;justify-content:center}
+  .wa-btns button{background:#fff;border:1.5px solid #25d366;color:var(--wa);border-radius:99px;padding:8px 13px;font-size:13px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif}
   table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:12px}
-  th,td{border-bottom:1px solid #eee;padding:6px 4px;text-align:left}
+  th,td{border-bottom:1px solid #eee;padding:6px 4px;text-align:left;vertical-align:top}
   .astats{display:flex;gap:10px;flex-wrap:wrap}
   .astat{flex:1;min-width:100px;background:#fdf3dd;border:1px solid #ecd9ac;border-radius:10px;padding:10px;text-align:center}
   .astat b{display:block;font-size:19px;color:var(--rose)}
   .astat span{font-size:11.5px;color:#7a5b23}
-  #chatFab{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle at 32% 28%,#96505a,var(--rose) 70%);cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.4);z-index:50;display:flex;align-items:center;justify-content:center;padding:0}
+  /* ---------- Game ---------- */
+  .challenge{margin:14px 22px 0;background:linear-gradient(120deg,#fdf0d2,#f7e3b8);border:1.5px solid var(--gold2);border-radius:12px;padding:13px 16px;font-family:Arial,sans-serif;font-size:14px;color:#5c4b32;line-height:1.55}
+  .challenge b{color:var(--rose)}
+  .mode-row{display:flex;flex-wrap:wrap;gap:7px;padding:14px 22px 0;font-family:Arial,sans-serif}
+  .mode-row button{background:#fff;border:1.5px solid var(--gold);color:var(--rose);border-radius:99px;padding:9px 16px;font-size:14px;font-weight:bold;cursor:pointer}
+  .mode-row button.active{background:var(--rose);color:#ffe9b0;border-color:var(--rose)}
+  .palette{display:flex;flex-wrap:wrap;gap:7px;align-items:center;padding:14px 22px 0;font-family:Arial,sans-serif}
+  .palette .swatch{width:34px;height:34px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 0 0 1.5px #d9c28a;cursor:pointer;padding:0}
+  .palette .swatch.active{box-shadow:0 0 0 3px var(--rose);transform:scale(1.12)}
+  .palette .cur{font-size:13px;color:#5c4b32;margin-left:4px}
+  .game-box{margin:14px 22px 0;background:var(--paper);border:1px solid #ecd9ac;border-radius:14px;padding:16px;font-family:Arial,sans-serif}
+  .game-box h3{font-family:Georgia,serif;color:var(--rose);font-size:19px}
+  .game-box p.sub{font-size:12.5px;color:#8a6a2f;margin:4px 0 10px;line-height:1.55}
+  .tmpl-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}
+  .tmpl-row button{background:#fff;border:1.5px solid var(--gold);color:var(--rose);border-radius:99px;padding:7px 13px;font-size:13px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif}
+  .tmpl-row button.active{background:var(--gold);color:#2b1d05;border-color:var(--gold)}
+  .colour-stage{background:#fdf8ec;border:1px solid #ecd9ac;border-radius:12px;padding:10px;text-align:center}
+  .colour-svg{max-width:430px;width:100%;height:auto;display:none;margin:0 auto}
+  .colour-svg.active{display:block}
+  .colour-svg .region{cursor:pointer;stroke:#6b543a;stroke-width:2;transition:fill .15s}
+  .colour-svg .region:hover{opacity:.88}
+  .progress-line{font-size:14px;color:#5c4b32;margin:12px 0 4px}
+  .progress-line b{color:var(--rose)}
+  .progbar{height:10px;background:#f0e3c2;border-radius:99px;overflow:hidden;margin-bottom:12px}
+  .progbar div{height:100%;background:linear-gradient(90deg,var(--gold),var(--rose));width:0;transition:width .25s}
+  .tool-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .tool-row .btn{margin:0}
+  .tool-row label{margin:0;font-size:13px}
+  .tool-row input[type=range]{width:130px;padding:0;border:none}
+  #freeCanvas{width:100%;height:auto;background:#fffdf7;border:1.5px solid #d9c28a;border-radius:12px;touch-action:none;cursor:crosshair;display:block}
+  .game-cta{margin:18px 22px 0;text-align:center;background:#fffaf0;border:1px solid #ecd9ac;border-radius:14px;padding:18px;font-family:Arial,sans-serif}
+  .game-cta p{font-family:Georgia,serif;font-size:18px;color:var(--rose);margin-bottom:12px;line-height:1.45}
+  /* ---------- Chatbot ---------- */
+  #chatFab{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle at 32% 28%,var(--rose2),var(--rose) 70%);cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.4);z-index:60;display:flex;align-items:center;justify-content:center;padding:0}
   #chatFab::after{content:'';position:absolute;top:1px;right:1px;width:13px;height:13px;border-radius:50%;background:#25d366;border:2px solid var(--cream)}
-  #chatPanel{position:fixed;right:18px;bottom:86px;width:min(92vw,350px);background:#fff;border-radius:16px;box-shadow:0 16px 44px rgba(0,0,0,.45);display:none;flex-direction:column;overflow:hidden;z-index:50;font-family:Arial,sans-serif}
+  #chatPanel{position:fixed;right:18px;bottom:86px;width:min(92vw,350px);background:#fff;border-radius:16px;box-shadow:0 16px 44px rgba(0,0,0,.45);display:none;flex-direction:column;overflow:hidden;z-index:60;font-family:Arial,sans-serif}
   #chatPanel.open{display:flex}
-  .chat-head{background:linear-gradient(90deg,var(--rose),#96505a);color:#ffe9b0;padding:12px 14px;display:flex;align-items:center;gap:10px}
+  .chat-head{background:linear-gradient(90deg,var(--rose),var(--rose2));color:#ffe9b0;padding:12px 14px;display:flex;align-items:center;gap:10px}
   .chat-head b{font-size:15px}.chat-head span{display:block;font-size:11.5px;opacity:.85}
   #chatMsgs{padding:12px;display:flex;flex-direction:column;gap:7px;max-height:300px;overflow-y:auto;background:#fdf8ec}
   .cmsg{max-width:86%;padding:8px 11px;border-radius:12px;font-size:13.5px;line-height:1.45;white-space:pre-line}
   .cmsg.bot{background:#fff;border:1px solid #ecd9ac;align-self:flex-start}
   .cmsg.me{background:var(--rose);color:#ffe9b0;align-self:flex-end}
   .chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 10px;background:#fdf8ec}
-  .chips button{background:#fff;border:1.5px solid var(--gold);color:var(--rose);border-radius:99px;padding:6px 11px;font-size:12.5px;cursor:pointer;font-weight:bold}
+  .chips button{background:#fff;border:1.5px solid var(--gold);color:var(--rose);border-radius:99px;padding:6px 11px;font-size:12.5px;cursor:pointer;font-weight:bold;font-family:Arial,sans-serif}
   .chat-in{display:flex;border-top:1px solid #eee}
-  .chat-in input{flex:1;border:none;padding:12px;font-size:14.5px;outline:none}
+  .chat-in input{flex:1;border:none;padding:12px;font-size:14.5px;outline:none;width:auto}
   .chat-in button{background:var(--rose);color:#ffe9b0;border:none;padding:0 17px;font-size:15px;cursor:pointer}
+  .foot-note{text-align:center;color:#cbb27a;font-family:Arial,sans-serif;font-size:11.5px;margin-top:12px;line-height:1.6}
+  @media (max-width:560px){.hero h1{font-size:38px}.hero h1 span{font-size:26px}.tabnav button{padding:8px 12px;font-size:12.5px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="demo-banner">DEMO built by SA Technologies — sample data & demo prices, no real payments. One link replaces "DM to enquire".</div>
+  <div class="demo-banner">DEMO built by SA Technologies — placeholder images for now; Deepika's real paintings will replace them as soon as she shares her photos. No real payments on this page.</div>
   <div class="card">
-    <div class="hero">
-      <div class="kicker">DEEPIKAZ.ART</div>
-      <h1>DEEPIKA <span>Live Painting Artist</span></h1>
-      <p class="tag">Your wedding, painted live — a moment on canvas, forever.</p>
-      <div class="stats">
-        <div class="stat"><b>60+</b><span>events painted</span></div>
-        <div class="stat"><b>6+ yrs</b><span>experience</span></div>
-        <div class="stat"><b>Worldwide</b><span>travels for events</span></div>
+    <nav class="tabnav" id="tabNav" aria-label="Site sections">
+      <button data-tab="home" class="active">Home</button>
+      <button data-tab="gallery">Gallery</button>
+      <button data-tab="prices">Live Painting &amp; Prices</button>
+      <button data-tab="play">Paint &amp; Play</button>
+      <button data-tab="enquire">Enquire</button>
+      <button data-tab="artist">For Deepika</button>
+    </nav>
+
+    <!-- ================= HOME ================= -->
+    <section class="tabpage active" id="page-home">
+      <div class="hero">
+        <div class="kicker">DEEPIKAZ.ART</div>
+        <h1>DEEPIKA <span>Live Painting Artist</span></h1>
+        <p class="tag">Your wedding, painted live — a moment on canvas, forever.</p>
+        <div class="stats">
+          <div class="stat"><b>60+</b><span>events painted</span></div>
+          <div class="stat"><b>6+ yrs</b><span>experience</span></div>
+          <div class="stat"><b>Worldwide</b><span>travels for events</span></div>
+        </div>
       </div>
-    </div>
 
-    <div class="services">
-      <div class="svc"><b>🎉 Live Event Painting</b><p>Weddings & events painted live in front of your guests — entertainment and a timeless keepsake in one. South India's pioneering live wedding painting artist.</p></div>
-      <div class="svc"><b>🖼️ Custom Paintings</b><p>Portraits & family paintings from your photos, on canvas — like the family-of-5 and couple portraits on her Instagram. Premium pieces go up to ₹50,000.</p></div>
-      <div class="svc"><b>💻 Pre-recorded Workshop</b><p>Learn at your own pace. In the live version: pay online, get instant access — no DM back-and-forth.</p></div>
-    </div>
-
-    <h2 class="sec">Size & price guide</h2>
-    <p class="secsub">Tap a size to select it for your enquiry. Demo prices for illustration — Deepika confirms the final quote.</p>
-    <div class="sizes" id="sizeList">
-      <div class="row" data-size="A4 (8×12 in)"><span>A4 · 8×12 in — keepsake</span><span>from ₹4,999</span></div>
-      <div class="row" data-size="A3 (12×16 in)"><span>A3 · 12×16 in</span><span>from ₹9,999</span></div>
-      <div class="row sel" data-size="A2 (16×24 in)"><span>A2 · 16×24 in — most popular</span><span>from ₹19,999</span></div>
-      <div class="row" data-size="24×36 in"><span>24×36 in — statement piece</span><span>from ₹34,999</span></div>
-      <div class="row" data-size="36×48 in"><span>36×48 in — grand canvas</span><span>from ₹49,999</span></div>
-    </div>
-
-    <h2 class="sec">Check your date / enquire</h2>
-    <p class="secsub">Wedding dates book out fast — the live version checks Deepika's calendar before confirming.</p>
-    <form id="enqForm">
-      <label>Your name</label>
-      <input id="name" placeholder="e.g. Priya Sharma" autocomplete="name">
-      <label>WhatsApp number</label>
-      <input id="phone" placeholder="10-digit mobile" inputmode="numeric" autocomplete="tel">
-      <div class="grid2">
-        <div><label>Service</label>
-          <select id="service">
-            <option>Live wedding painting</option>
-            <option>Live event painting (other)</option>
-            <option>Custom painting</option>
-            <option>Pre-recorded workshop</option>
-          </select></div>
-        <div><label>Event date</label>
-          <input id="evdate" type="date"></div>
+      <div class="services">
+        <div class="svc">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7a2e35" stroke-width="1.8"><path d="M12 21c-4-3.5-8-6.6-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 3.5C20 14.4 16 17.5 12 21Z"/></svg></div>
+          <b>Live Event Painting</b>
+          <p>Weddings &amp; events painted live in front of your guests — entertainment and a timeless keepsake in one. South India's pioneering live wedding painting artist.</p>
+        </div>
+        <div class="svc">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7a2e35" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6" fill="#b98a2f"/><path d="M3 16l5-4 4 3 4-4 5 5"/></svg></div>
+          <b>Custom Paintings</b>
+          <p>Portraits &amp; family paintings from your photos, on canvas — couple portraits, family pieces and gifts, finished in her studio and handed over framed-ready.</p>
+        </div>
+        <div class="svc">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7a2e35" stroke-width="1.8"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="M10 9.5v5l4.5-2.5z" fill="#b98a2f"/></svg></div>
+          <b>Pre-recorded Workshop</b>
+          <p>Learn painting at your own pace with her recorded workshop. In the live version: pay online, get instant access — no DM back-and-forth.</p>
+        </div>
       </div>
-      <label>City / venue</label>
-      <input id="venue" placeholder="e.g. Chennai — The Leela Palace">
-      <div class="err" id="err"></div>
-      <button class="cta" type="submit">Send enquiry →</button>
-    </form>
-    <div class="tiny">In the live version this enquiry lands instantly on Deepika's WhatsApp & dashboard — with an automatic reply to you. No enquiry gets lost in DM requests again.</div>
 
-    <div class="confirm" id="confirm">
-      <h3>✅ Enquiry received (demo)</h3>
-      <div class="id" id="enqId"></div>
-      <p id="confirmText" style="margin-top:6px;font-size:14px"></p>
-      <p style="font-size:13px;margin-top:6px">The live version also holds your date with an advance payment link, and sends both sides a confirmation on WhatsApp.</p>
-    </div>
-  </div>
+      <h2 class="sec">How live painting works</h2>
+      <p class="secsub">From first enquiry to a finished painting on your wall — this is the journey on your wedding day.</p>
+      <div class="steps">
+        <div class="step"><b><span class="n">1</span> Enquire &amp; block your date</b><p>Send the enquiry with your date and city. A Rs 5,000 advance blocks Deepika's calendar for your day.</p></div>
+        <div class="step"><b><span class="n">2</span> She arrives early</b><p>Deepika reaches the venue 2–3 hours before the event, sets up her easel and paints the scene and decor first.</p></div>
+        <div class="step"><b><span class="n">3</span> Painted live, 5–7 hours</b><p>As your celebration unfolds, the couple and the moment come alive on canvas — your guests watch it happen.</p></div>
+        <div class="step"><b><span class="n">4</span> Handover</b><p>Studio finishing touches are added where needed, and the painting is handed over. Balance is paid on handover.</p></div>
+      </div>
 
-  <div class="panel">
-    <h2>WhatsApp bot — try it like a client</h2>
-    <p class="sub">In the live version this bot sits on Deepika's own WhatsApp. Clients ask about prices, sizes and dates — the bot answers and captures the enquiry. Tap the buttons:</p>
-    <div class="phone">
-      <div class="wa-head"><b>Deepikaz Art</b>business account · online</div>
-      <div class="wa-body" id="waBody"></div>
-    </div>
-    <div class="wa-btns" id="waBtns">
-      <button data-wa="hi">👋 Say Hi</button>
-      <button data-wa="price">💰 Painting prices</button>
-      <button data-wa="wedding">💍 Wedding booking</button>
-      <button data-wa="workshop">💻 Workshop</button>
-    </div>
-  </div>
+      <div class="game-banner">
+        <div>
+          <h3>Paint &amp; Play — try painting yourself</h3>
+          <p>While you're here, visit our little studio corner: colour a wedding couple or a peacock, or grab a brush and paint anything you like on a blank canvas. Download your artwork when you're done.</p>
+        </div>
+        <button class="btn" data-goto="play">Play now</button>
+      </div>
 
-  <div class="panel">
-    <h2>Artist view — what Deepika sees</h2>
-    <p class="sub">Every enquiry in one list — service, date, city — instead of scattered DM threads. Follow-ups go out automatically.</p>
-    <div class="astats">
-      <div class="astat"><b id="stCount">0</b><span>enquiries</span></div>
-      <div class="astat"><b id="stWed">0</b><span>wedding enquiries</span></div>
-      <div class="astat"><b id="stCities">0</b><span>cities</span></div>
-    </div>
-    <table><thead><tr><th>Enquiry</th><th>Name</th><th>Service</th><th>Date / City</th></tr></thead><tbody id="rows"></tbody></table>
+      <div style="text-align:center;padding:18px 22px 4px">
+        <button class="btn secondary" data-goto="gallery">See the gallery</button>
+        <button class="btn" data-goto="enquire" style="margin-left:8px">Check your date</button>
+      </div>
+    </section>
+
+    <!-- ================= GALLERY ================= -->
+    <section class="tabpage" id="page-gallery">
+      <h2 class="sec">Gallery</h2>
+      <p class="secsub">A first look at the kind of work Deepika creates — live wedding paintings, custom portraits and workshop pieces.</p>
+      <div class="note"><b>Please note:</b> these are placeholder tiles for now. Deepika is sharing 10–15 of her best real paintings, and the moment they arrive, every placeholder here will be replaced with her actual work — live-event paintings, finished couple paintings and custom orders.</div>
+      <div class="chips-row" id="galleryFilters">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="live">Live Weddings</button>
+        <button data-filter="custom">Custom Portraits</button>
+        <button data-filter="workshop">Workshops</button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="art-card" data-cat="live"><div class="art g1"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M12 21c-4-3.5-8-6.6-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 3.5C20 14.4 16 17.5 12 21Z"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>The Wedding Moment</b><span>Live Weddings</span></div></div>
+        <div class="art-card" data-cat="custom"><div class="art g2"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c1-3.6 3.8-5.4 7-5.4s6 1.8 7 5.4"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Couple Portrait</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="live"><div class="art g3"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="9" cy="12" r="4"/><circle cx="15" cy="12" r="4"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Exchange of Rings</b><span>Live Weddings</span></div></div>
+        <div class="art-card" data-cat="workshop"><div class="art g4"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M4 20L14.5 9.5"/><path d="M14.5 9.5l3-3L20 9l-3 3z"/><circle cx="5.5" cy="18.5" r="1.6"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Workshop Canvas</b><span>Workshops</span></div></div>
+        <div class="art-card" data-cat="custom"><div class="art g5"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="8" cy="9" r="2.4"/><circle cx="16" cy="9" r="2.4"/><circle cx="12" cy="7.4" r="2"/><path d="M3.5 20c.8-3 3.4-4.6 8.5-4.6s7.7 1.6 8.5 4.6"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Family of Five</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="live"><div class="art g6"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M12 3v4M12 7l-5 13h10z"/><circle cx="12" cy="14" r="1.4"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>The Grand Entry</b><span>Live Weddings</span></div></div>
+        <div class="art-card" data-cat="workshop"><div class="art g7"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.5 5.5l2 2M16.5 16.5l2 2M18.5 5.5l-2 2M7.5 16.5l-2 2"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Colours of Morning</b><span>Workshops</span></div></div>
+        <div class="art-card" data-cat="custom"><div class="art g8"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M12 21c-5-1.2-7-4.8-7-9V5.5L12 3l7 2.5V12c0 4.2-2 7.8-7 9z"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Heirloom Piece</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="live"><div class="art g9"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M4 19c4-1 5-6 8-6s3 4 8 4"/><circle cx="9" cy="8" r="2.2"/><circle cx="16" cy="6.5" r="1.7"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>First Dance</b><span>Live Weddings</span></div></div>
+        <div class="art-card" data-cat="custom"><div class="art g10"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="12" cy="10" r="2.4"/><path d="M5 19c1.4-2.8 4-4.2 7-4.2s5.6 1.4 7 4.2"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>From Your Photo</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="workshop"><div class="art g11"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M12 20c-4-4-6-7-6-10a6 6 0 0 1 12 0c0 3-2 6-6 10z"/><circle cx="12" cy="10" r="2"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Mandala Practice</b><span>Workshops</span></div></div>
+        <div class="art-card" data-cat="live"><div class="art g12"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M3 16h18M5 16c0-4 3-7 7-7s7 3 7 7"/><path d="M9 9V5M15 9V5"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>The Venue, Painted</b><span>Live Weddings</span></div></div>
+      </div>
+      <div style="text-align:center;padding:8px 22px 0">
+        <button class="btn" data-goto="enquire">Enquire about your date</button>
+      </div>
+    </section>
+
+    <!-- ================= PRICES ================= -->
+    <section class="tabpage" id="page-prices">
+      <h2 class="sec">Live Painting &amp; Prices</h2>
+      <p class="secsub">Deepika's real price list, from her own brochure. Tap any size &amp; finish to select it — your selection carries straight into the enquiry form. All prices are plus travel to your venue.</p>
+
+      <div class="price-block" id="priceList">
+        <h3>Canvas 24 × 30 in</h3>
+        <div class="row" data-size="24x30 in — Classic"><span>Classic</span><span>Rs 26,000+</span></div>
+        <div class="row sel" data-size="24x30 in — Signature"><span>Signature <span class="pop">POPULAR</span></span><span>Rs 30,000+</span></div>
+        <div class="row" data-size="24x30 in — Studio Touch"><span>Studio Touch</span><span>Rs 40,000+</span></div>
+        <div class="row" data-size="24x30 in — Heirloom"><span>Heirloom</span><span>Rs 75,000+</span></div>
+        <h3>Canvas 24 × 36 in</h3>
+        <div class="row" data-size="24x36 in — Classic"><span>Classic</span><span>Rs 35,000+</span></div>
+        <div class="row" data-size="24x36 in — Signature"><span>Signature</span><span>Rs 45,000+</span></div>
+        <div class="row" data-size="24x36 in — Studio Touch"><span>Studio Touch</span><span>Rs 60,000+</span></div>
+        <div class="row" data-size="24x36 in — Studio Touch+ / Heirloom"><span>Studio Touch+ / Heirloom</span><span>Rs 90,000+</span></div>
+      </div>
+      <div class="sel-line">Selected for your enquiry: <b id="selSizeLabel">24x30 in — Signature (Rs 30,000+)</b></div>
+
+      <div class="note">
+        <b>How booking works:</b> Rs 5,000 advance blocks your date, and the balance is paid on handover of the finished painting. On the day, Deepika arrives 2–3 hours early and paints live for 5–7 hours as your event unfolds. Travel to the venue is charged extra, at actuals. For custom paintings from a photo and workshop access, send an enquiry and she will confirm your exact quote.
+      </div>
+
+      <h2 class="sec">What's included</h2>
+      <div class="steps">
+        <div class="step"><b><span class="n">1</span> Live painting</b><p>Your ceremony / key moment painted on canvas at the venue, in front of your guests.</p></div>
+        <div class="step"><b><span class="n">2</span> Studio finish</b><p>Higher finishes (Studio Touch and above) include extra studio detailing after the event.</p></div>
+        <div class="step"><b><span class="n">3</span> Memories kept</b><p>A physical heirloom of the day — not just photos and video, but a painting made inside the moment.</p></div>
+        <div class="step"><b><span class="n">4</span> Worldwide</b><p>60+ events painted, across India and worldwide. Share your city in the enquiry.</p></div>
+      </div>
+      <div style="text-align:center;padding:18px 22px 0">
+        <button class="btn" data-goto="enquire">Enquire with this size</button>
+      </div>
+    </section>
+
+    <!-- ================= PAINT & PLAY ================= -->
+    <section class="tabpage" id="page-play">
+      <h2 class="sec">Paint &amp; Play</h2>
+      <p class="secsub">Our little studio corner for visitors. Colour a picture, or paint your own — no rules, just play for a minute.</p>
+      <div class="challenge"><b>Today's challenge:</b> colour the wedding couple in classic wedding colours — deep reds, golds and greens. Then try the peacock in full festive colour.</div>
+
+      <div class="palette" id="palette" aria-label="Colour palette"></div>
+
+      <div class="mode-row" id="gameModes">
+        <button data-mode="colour" class="active">Mode A — Colour It</button>
+        <button data-mode="free">Mode B — Free Paint</button>
+      </div>
+
+      <div class="game-box" id="mode-colour">
+        <h3>Colour It</h3>
+        <p class="sub">Pick a colour from the palette above, then tap any part of the picture to fill it. Switch pictures any time — your colours stay saved per picture.</p>
+        <div class="tmpl-row" id="tmplRow">
+          <button data-tmpl="couple" class="active">Wedding Couple</button>
+          <button data-tmpl="peacock">Peacock</button>
+          <button data-tmpl="mandala">Flower Mandala</button>
+        </div>
+        <div class="colour-stage">
+          <svg class="colour-svg active" id="svg-couple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Wedding couple colouring page">
+            <rect class="region" x="0" y="0" width="400" height="300" fill="#fdf3d8"/>
+            <path class="region" d="M60 262 V150 A140 120 0 0 1 340 150 V262 Z" fill="#f7e3b8"/>
+            <rect class="region" x="0" y="262" width="400" height="38" fill="#e8d5a8"/>
+            <circle class="region" cx="148" cy="88" r="21" fill="#f6d7b0"/>
+            <path class="region" d="M126 86 a22 20 0 0 1 44 0 l0 -6 a22 14 0 0 0 -44 0 Z" fill="#3a2a20"/>
+            <polygon class="region" points="148,112 118,124 112,214 184,214 178,124" fill="#4a4a68"/>
+            <polygon class="region" points="148,116 136,150 148,196 160,150" fill="#ffffff"/>
+            <polygon class="region" points="120,214 176,214 180,262 116,262" fill="#333344"/>
+            <circle class="region" cx="252" cy="88" r="21" fill="#f6d7b0"/>
+            <path class="region" d="M230 92 a22 22 0 0 1 44 -2 l4 34 a10 10 0 0 1 -18 4 l-6 -22 l-6 22 a10 10 0 0 1 -18 -4 Z" fill="#2c1c14"/>
+            <path class="region" d="M252 112 C228 128 214 190 198 262 L306 262 C290 190 276 128 252 112 Z" fill="#c0394e"/>
+            <polygon class="region" points="252,120 224,168 252,196 280,168" fill="#e9c46a"/>
+            <circle class="region" cx="252" cy="182" r="14" fill="#e77e95"/>
+            <circle class="region" cx="238" cy="188" r="9" fill="#7fb069"/>
+            <circle class="region" cx="266" cy="188" r="9" fill="#f2b134"/>
+          </svg>
+          <svg class="colour-svg" id="svg-peacock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Peacock colouring page">
+            <rect class="region" x="0" y="0" width="400" height="300" fill="#eaf4fb"/>
+            <ellipse class="region" cx="200" cy="272" rx="150" ry="20" fill="#cfe3b8"/>
+            <ellipse class="region" cx="118" cy="196" rx="26" ry="62" transform="rotate(-38 118 196)" fill="#7fb069"/>
+            <ellipse class="region" cx="156" cy="178" rx="26" ry="70" transform="rotate(-19 156 178)" fill="#5aa469"/>
+            <ellipse class="region" cx="200" cy="170" rx="27" ry="74" fill="#7fb069"/>
+            <ellipse class="region" cx="244" cy="178" rx="26" ry="70" transform="rotate(19 244 178)" fill="#5aa469"/>
+            <ellipse class="region" cx="282" cy="196" rx="26" ry="62" transform="rotate(38 282 196)" fill="#7fb069"/>
+            <circle class="region" cx="132" cy="160" r="11" fill="#2f6f9f"/>
+            <circle class="region" cx="200" cy="128" r="12" fill="#2f6f9f"/>
+            <circle class="region" cx="268" cy="160" r="11" fill="#2f6f9f"/>
+            <path class="region" d="M200 132 C182 160 178 196 188 232 L212 232 C222 196 218 160 200 132 Z" fill="#2f6f9f"/>
+            <ellipse class="region" cx="200" cy="222" rx="26" ry="30" fill="#3a86b0"/>
+            <circle class="region" cx="200" cy="106" r="15" fill="#3a86b0"/>
+            <circle class="region" cx="188" cy="82" r="6" fill="#e9c46a"/>
+            <circle class="region" cx="200" cy="74" r="6" fill="#e9c46a"/>
+            <circle class="region" cx="212" cy="82" r="6" fill="#e9c46a"/>
+            <polygon class="region" points="200,112 192,120 208,120" fill="#f2b134"/>
+          </svg>
+          <svg class="colour-svg" id="svg-mandala" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="Flower mandala colouring page">
+            <rect class="region" x="0" y="0" width="400" height="320" fill="#fdf3d8"/>
+            <ellipse class="region" cx="200" cy="62" rx="27" ry="44" fill="#f2a7bb"/>
+            <ellipse class="region" cx="200" cy="62" rx="27" ry="44" transform="rotate(45 200 160)" fill="#f7c873"/>
+            <ellipse class="region" cx="200" cy="62" rx="27" ry="44" transform="rotate(90 200 160)" fill="#f2a7bb"/>
+            <ellipse class="region" cx="200" cy="62" rx="27" ry="44" transform="rotate(135 200 160)" fill="#f7c873"/>
+            <ellipse class="region" cx="200" cy="62" rx="27" ry="44" transform="rotate(180 200 160)" fill="#f2a7bb"/>
+            <ellipse class="region" cx="200" cy="62" rx="27" ry="44" transform="rotate(225 200 160)" fill="#f7c873"/>
+            <ellipse class="region" cx="200" cy="62" rx="27" ry="44" transform="rotate(270 200 160)" fill="#f2a7bb"/>
+            <ellipse class="region" cx="200" cy="62" rx="27" ry="44" transform="rotate(315 200 160)" fill="#f7c873"/>
+            <circle class="region" cx="200" cy="160" r="58" fill="#e77e95"/>
+            <circle class="region" cx="200" cy="160" r="38" fill="#f7e3b8"/>
+            <circle class="region" cx="200" cy="160" r="19" fill="#c0394e"/>
+            <circle class="region" cx="52" cy="42" r="12" fill="#7fb069"/>
+            <circle class="region" cx="348" cy="42" r="12" fill="#7fb069"/>
+            <circle class="region" cx="52" cy="278" r="12" fill="#7fb069"/>
+            <circle class="region" cx="348" cy="278" r="12" fill="#7fb069"/>
+          </svg>
+        </div>
+        <div class="progress-line">You coloured <b id="colourCount">0</b> of <b id="colourTotal">0</b> parts</div>
+        <div class="progbar"><div id="progFill"></div></div>
+        <div class="tool-row">
+          <button class="btn small secondary" id="btnSurprise" type="button">Surprise me</button>
+          <button class="btn small secondary" id="btnResetColour" type="button">Reset</button>
+          <button class="btn small" id="btnDownloadColour" type="button">Download my artwork (PNG)</button>
+        </div>
+      </div>
+
+      <div class="game-box" id="mode-free" style="display:none">
+        <h3>Free Paint</h3>
+        <p class="sub">A blank canvas, all yours. Draw with your mouse or your finger — a house, a flower, your wedding venue, anything. Pick colours from the palette above.</p>
+        <canvas id="freeCanvas" width="800" height="480"></canvas>
+        <div class="tool-row">
+          <label for="brushSize">Brush size</label>
+          <input type="range" id="brushSize" min="2" max="42" value="9">
+          <span id="brushVal" style="font-size:13px;color:#5c4b32">9 px</span>
+          <button class="btn small secondary" id="btnEraser" type="button">Eraser</button>
+          <button class="btn small secondary" id="btnUndo" type="button">Undo</button>
+          <button class="btn small secondary" id="btnClear" type="button">Clear canvas</button>
+          <button class="btn small" id="btnDownloadFree" type="button">Download my artwork (PNG)</button>
+        </div>
+      </div>
+
+      <div class="game-cta">
+        <p>Enjoyed painting? Imagine Deepika painting YOUR wedding live.</p>
+        <button class="btn" data-goto="enquire">Enquire about your date</button>
+      </div>
+    </section>
+
+    <!-- ================= ENQUIRE ================= -->
+    <section class="tabpage" id="page-enquire">
+      <h2 class="sec">Check your date / enquire</h2>
+      <p class="secsub">Wedding dates book out fast — the live version checks Deepika's calendar before confirming. Your selected size from the Prices tab is carried in automatically.</p>
+      <div class="sel-line">Painting size selected: <b id="enqSizeDisplay">24x30 in — Signature (Rs 30,000+)</b> &nbsp;<button class="btn small secondary" data-goto="prices" type="button" style="padding:5px 11px">Change</button></div>
+      <form id="enqForm">
+        <label for="name">Your name</label>
+        <input id="name" placeholder="e.g. Priya Sharma" autocomplete="name">
+        <label for="phone">WhatsApp number</label>
+        <input id="phone" placeholder="10-digit mobile" inputmode="numeric" autocomplete="tel">
+        <div class="grid2">
+          <div><label for="service">Service</label>
+            <select id="service">
+              <option>Live wedding painting</option>
+              <option>Live event painting (other)</option>
+              <option>Custom painting</option>
+              <option>Pre-recorded workshop</option>
+            </select></div>
+          <div><label for="evdate">Event date</label>
+            <input id="evdate" type="date"></div>
+        </div>
+        <label for="venue">City / venue</label>
+        <input id="venue" placeholder="e.g. Chennai — The Leela Palace">
+        <div class="err" id="err"></div>
+        <button class="cta" type="submit">Send enquiry</button>
+      </form>
+      <div class="tiny">In the live version this enquiry lands instantly on Deepika's WhatsApp &amp; dashboard — with an automatic reply to you. No enquiry gets lost in DM requests again.</div>
+
+      <div class="confirm" id="confirm">
+        <h3>Enquiry received (demo)</h3>
+        <div class="id" id="enqId"></div>
+        <p id="confirmText" style="margin-top:6px;font-size:14px"></p>
+        <p style="font-size:13px;margin-top:6px">The live version also holds your date with the Rs 5,000 advance payment link, and sends both sides a confirmation on WhatsApp.</p>
+      </div>
+
+      <div class="panel">
+        <h2>WhatsApp bot — try it like a client</h2>
+        <p class="sub">In the live version this bot sits on Deepika's own WhatsApp. Clients ask about prices, sizes and dates — the bot answers and captures the enquiry. Tap the buttons:</p>
+        <div class="phone">
+          <div class="wa-head"><b>Deepikaz Art</b>business account · online</div>
+          <div class="wa-body" id="waBody"></div>
+        </div>
+        <div class="wa-btns" id="waBtns">
+          <button data-wa="hi" type="button">Say Hi</button>
+          <button data-wa="price" type="button">Painting prices</button>
+          <button data-wa="wedding" type="button">Wedding booking</button>
+          <button data-wa="workshop" type="button">Workshop</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOR DEEPIKA ================= -->
+    <section class="tabpage" id="page-artist">
+      <div class="panel" style="margin-top:20px">
+        <h2>Artist view — what Deepika sees</h2>
+        <p class="sub">Every enquiry in one list — service, date, city, size — instead of scattered DM threads. Enquiries you submit in the Enquire tab appear here instantly. Follow-ups go out automatically in the live version.</p>
+        <div class="astats">
+          <div class="astat"><b id="stCount">0</b><span>enquiries</span></div>
+          <div class="astat"><b id="stWed">0</b><span>wedding enquiries</span></div>
+          <div class="astat"><b id="stCities">0</b><span>cities</span></div>
+        </div>
+        <table><thead><tr><th>Enquiry</th><th>Name</th><th>Service</th><th>Size</th><th>Date / City</th></tr></thead><tbody id="rows"></tbody></table>
+      </div>
+    </section>
   </div>
+  <div class="foot-note">Deepikaz.Art — demo experience built by SA Technologies.<br>Placeholder gallery: real paintings replace these tiles once Deepika shares her photos.</div>
 </div>
-
-<script>
-const SEED = [
-  {id:'DA-2201', name:'Demo Client 1', service:'Live wedding painting', date:'2026-12-05', venue:'Chennai', size:'A2 (16×24 in)'},
-  {id:'DA-2202', name:'Demo Client 2', service:'Custom painting', date:'', venue:'Bengaluru', size:'24×36 in'},
-  {id:'DA-2203', name:'Demo Client 3', service:'Live wedding painting', date:'2027-01-18', venue:'Coimbatore', size:'A2 (16×24 in)'}
-];
-let enquiries = JSON.parse(localStorage.getItem('da_enq') || 'null') || SEED.slice();
-let selSize = 'A2 (16×24 in)';
-document.getElementById('sizeList').addEventListener('click', e => {
-  const row = e.target.closest('.row');
-  if(!row) return;
-  document.querySelectorAll('#sizeList .row').forEach(r => r.classList.remove('sel'));
-  row.classList.add('sel'); selSize = row.getAttribute('data-size');
-});
-function render(){
-  document.getElementById('stCount').textContent = enquiries.length;
-  document.getElementById('stWed').textContent = enquiries.filter(x => x.service.toLowerCase().includes('wedding')).length;
-  document.getElementById('stCities').textContent = new Set(enquiries.map(x => (x.venue || '').split('—')[0].trim()).filter(Boolean)).size;
-  document.getElementById('rows').innerHTML = enquiries.map(x =>
-    '<tr><td>' + x.id + '</td><td>' + x.name + '</td><td>' + x.service + '</td><td>' + (x.date || '—') + ' · ' + (x.venue || '—') + '</td></tr>').join('');
-  localStorage.setItem('da_enq', JSON.stringify(enquiries));
-}
-document.getElementById('enqForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.replace(/\D/g,'').slice(-10);
-  const service = document.getElementById('service').value;
-  const date = document.getElementById('evdate').value;
-  const venue = document.getElementById('venue').value.trim();
-  const err = document.getElementById('err');
-  if(name.length < 2){ err.textContent = 'Please enter your name.'; err.style.display='block'; return; }
-  if(phone.length !== 10){ err.textContent = 'Please enter a valid 10-digit WhatsApp number.'; err.style.display='block'; return; }
-  err.style.display = 'none';
-  const id = 'DA-' + Math.floor(1000 + Math.random()*9000);
-  enquiries.push({id, name, service, date, venue, size: selSize});
-  render();
-  const c = document.getElementById('confirm');
-  c.style.display = 'block';
-  document.getElementById('enqId').textContent = id;
-  document.getElementById('confirmText').textContent = name + ' · ' + service + ' · Size ' + selSize + (date ? ' · ' + date : '') + (venue ? ' · ' + venue : '');
-  c.scrollIntoView({behavior:'smooth'});
-});
-render();
-
-/* ---------- WhatsApp bot simulator ---------- */
-const waBody = document.getElementById('waBody');
-function waAdd(text, who){
-  const d = document.createElement('div');
-  d.className = 'msg ' + who; d.textContent = text;
-  waBody.appendChild(d); waBody.scrollTop = waBody.scrollHeight;
-}
-function waBot(text){ setTimeout(() => waAdd(text, 'bot'), 450); }
-document.getElementById('waBtns').addEventListener('click', e => {
-  const key = e.target.getAttribute('data-wa');
-  if(!key) return;
-  if(key === 'hi'){ waAdd('Hi', 'me'); waBot('Hello! Welcome to Deepikaz Art 🎨\nI\'m Deepika\'s assistant. Ask me about:\n💍 Live wedding painting\n🖼️ Custom painting prices & sizes\n💻 The pre-recorded workshop\nTap a button below!'); }
-  if(key === 'price'){ waAdd('Painting prices', 'me'); waBot('🖼️ Custom painting sizes:\nA4 from ₹4,999 · A3 from ₹9,999\nA2 from ₹19,999 (most popular)\n24×36 in from ₹34,999 · 36×48 in from ₹49,999\nPremium pieces go up to ₹50,000. Final quote depends on photo & detail — send your photo here and I\'ll get your exact quote. (demo prices)'); }
-  if(key === 'wedding'){ waAdd('Wedding booking', 'me'); waBot('💍 Wonderful! Wedding dates book out fast.\nShare your wedding date + city here — I\'ll check Deepika\'s calendar instantly and hold the date with an advance. She paints live at weddings across India & worldwide ✈️'); }
-  if(key === 'workshop'){ waAdd('Workshop', 'me'); waBot('💻 The pre-recorded workshop lets you learn at your own pace.\nIn the live version you pay here in chat and get instant access — no waiting for a DM reply.'); }
-});
-waAdd('Hello! Tap "Say Hi" below to start — just like a client would.', 'bot');
-</script>
 
 <button id="chatFab" title="Chat with Deepika's assistant" aria-label="Chat with Deepika's assistant">
   <svg width="34" height="34" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-    <path d="M24 5C13.5 5 5 13 5 23c0 5.4 4.1 8.6 8.2 8.6 1.9 0 2.9 1 4.6 1 1.2 0 2.1.9 3.3.9C33.6 33.6 43 31.4 43 21.9 43 12.6 34.5 5 24 5Z" fill="#faf5ea" opacity="0.16"/>
     <path d="M24 6.5c-9.3 0-17.5 6.9-17.5 16 0 4.6 3.4 7.3 7 7.3 1.8 0 2.9.2 4.2 1.1 1 .7 1.9 1.1 3.4 1.1 10.3 0 20.4-2.5 20.4-10.7C41.5 13 33.3 6.5 24 6.5Z" stroke="#e9c46a" stroke-width="2.2"/>
     <circle cx="16.5" cy="16" r="3.1" fill="#e9c46a"/>
     <circle cx="25" cy="12.5" r="3.1" fill="#d4af5f"/>
@@ -248,69 +481,380 @@ waAdd('Hello! Tap "Say Hi" below to start — just like a client would.', 'bot')
   </div>
   <div id="chatMsgs"></div>
   <div class="chips" id="chatChips">
-    <button>Wedding price?</button>
-    <button>Custom painting cost?</button>
-    <button>How to book?</button>
-    <button>Do you travel?</button>
-    <button>Workshop details</button>
-    <button>Contact</button>
+    <button type="button">Wedding price?</button>
+    <button type="button">Custom painting cost?</button>
+    <button type="button">How to book?</button>
+    <button type="button">Do you travel?</button>
+    <button type="button">Workshop details</button>
+    <button type="button">Contact</button>
   </div>
   <div class="chat-in">
-    <input id="chatText" placeholder="Ask about paintings, weddings…">
-    <button id="chatSend">➤</button>
+    <input id="chatText" placeholder="Ask about paintings, weddings...">
+    <button id="chatSend" type="button">&#10148;</button>
   </div>
 </div>
 
 <script>
-/* ---------- Website chatbot ---------- */
-const panel = document.getElementById('chatPanel');
-const msgs = document.getElementById('chatMsgs');
-let chatOpened = false;
-document.getElementById('chatFab').addEventListener('click', () => {
-  panel.classList.toggle('open');
+/* ================= Tabs & routing ================= */
+var TABS = ['home','gallery','prices','play','enquire','artist'];
+function showTab(id, updateHash){
+  if(TABS.indexOf(id) === -1) id = 'home';
+  TABS.forEach(function(t){
+    document.getElementById('page-' + t).classList.toggle('active', t === id);
+  });
+  document.querySelectorAll('#tabNav button').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-tab') === id);
+  });
+  if(updateHash !== false){
+    try{ history.pushState(null, '', '#/' + id); }catch(e){ location.hash = '#/' + id; }
+  }
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+document.getElementById('tabNav').addEventListener('click', function(e){
+  var b = e.target.closest('button[data-tab]');
+  if(b) showTab(b.getAttribute('data-tab'));
+});
+document.addEventListener('click', function(e){
+  var g = e.target.closest('[data-goto]');
+  if(g) showTab(g.getAttribute('data-goto'));
+});
+window.addEventListener('hashchange', function(){
+  showTab(location.hash.replace('#/','').replace('#',''), false);
+});
+showTab(location.hash.replace('#/','').replace('#','') || 'home', false);
+
+/* ================= Gallery filter ================= */
+document.getElementById('galleryFilters').addEventListener('click', function(e){
+  var b = e.target.closest('button[data-filter]');
+  if(!b) return;
+  document.querySelectorAll('#galleryFilters button').forEach(function(x){ x.classList.remove('active'); });
+  b.classList.add('active');
+  var f = b.getAttribute('data-filter');
+  document.querySelectorAll('#galleryGrid .art-card').forEach(function(card){
+    card.classList.toggle('hidden', f !== 'all' && card.getAttribute('data-cat') !== f);
+  });
+});
+
+/* ================= Prices -> enquiry selection ================= */
+var PRICE_LABELS = {
+  '24x30 in — Classic': '24x30 in — Classic (Rs 26,000+)',
+  '24x30 in — Signature': '24x30 in — Signature (Rs 30,000+)',
+  '24x30 in — Studio Touch': '24x30 in — Studio Touch (Rs 40,000+)',
+  '24x30 in — Heirloom': '24x30 in — Heirloom (Rs 75,000+)',
+  '24x36 in — Classic': '24x36 in — Classic (Rs 35,000+)',
+  '24x36 in — Signature': '24x36 in — Signature (Rs 45,000+)',
+  '24x36 in — Studio Touch': '24x36 in — Studio Touch (Rs 60,000+)',
+  '24x36 in — Studio Touch+ / Heirloom': '24x36 in — Studio Touch+ / Heirloom (Rs 90,000+)'
+};
+var selSize = '24x30 in — Signature';
+function syncSize(){
+  var label = PRICE_LABELS[selSize] || selSize;
+  document.getElementById('selSizeLabel').textContent = label;
+  document.getElementById('enqSizeDisplay').textContent = label;
+}
+document.getElementById('priceList').addEventListener('click', function(e){
+  var row = e.target.closest('.row');
+  if(!row) return;
+  document.querySelectorAll('#priceList .row').forEach(function(r){ r.classList.remove('sel'); });
+  row.classList.add('sel');
+  selSize = row.getAttribute('data-size');
+  syncSize();
+});
+syncSize();
+
+/* ================= Enquiries + artist dashboard ================= */
+var SEED = [
+  {id:'DA-2201', name:'Demo Client 1', service:'Live wedding painting', date:'2026-12-05', venue:'Chennai', size:'24x30 in — Signature'},
+  {id:'DA-2202', name:'Demo Client 2', service:'Custom painting', date:'', venue:'Bengaluru', size:'24x36 in — Classic'},
+  {id:'DA-2203', name:'Demo Client 3', service:'Live wedding painting', date:'2027-01-18', venue:'Coimbatore', size:'24x30 in — Studio Touch'}
+];
+var enquiries;
+try{ enquiries = JSON.parse(localStorage.getItem('da_enq') || 'null') || SEED.slice(); }
+catch(e){ enquiries = SEED.slice(); }
+function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function render(){
+  document.getElementById('stCount').textContent = enquiries.length;
+  document.getElementById('stWed').textContent = enquiries.filter(function(x){ return x.service.toLowerCase().indexOf('wedding') !== -1; }).length;
+  document.getElementById('stCities').textContent = new Set(enquiries.map(function(x){ return (x.venue || '').split('—')[0].trim(); }).filter(Boolean)).size;
+  document.getElementById('rows').innerHTML = enquiries.map(function(x){
+    return '<tr><td>' + esc(x.id) + '</td><td>' + esc(x.name) + '</td><td>' + esc(x.service) + '</td><td>' + esc(x.size || '—') + '</td><td>' + esc(x.date || '—') + ' · ' + esc(x.venue || '—') + '</td></tr>';
+  }).join('');
+  try{ localStorage.setItem('da_enq', JSON.stringify(enquiries)); }catch(e){}
+}
+document.getElementById('enqForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name = document.getElementById('name').value.trim();
+  var phone = document.getElementById('phone').value.replace(/\D/g,'').slice(-10);
+  var service = document.getElementById('service').value;
+  var date = document.getElementById('evdate').value;
+  var venue = document.getElementById('venue').value.trim();
+  var err = document.getElementById('err');
+  if(name.length < 2){ err.textContent = 'Please enter your name.'; err.style.display = 'block'; return; }
+  if(phone.length !== 10){ err.textContent = 'Please enter a valid 10-digit WhatsApp number.'; err.style.display = 'block'; return; }
+  err.style.display = 'none';
+  var id = 'DA-' + Math.floor(1000 + Math.random() * 9000);
+  enquiries.push({id: id, name: name, service: service, date: date, venue: venue, size: selSize});
+  render();
+  var c = document.getElementById('confirm');
+  c.style.display = 'block';
+  document.getElementById('enqId').textContent = id;
+  document.getElementById('confirmText').textContent = name + ' · ' + service + ' · Size ' + (PRICE_LABELS[selSize] || selSize) + (date ? ' · ' + date : '') + (venue ? ' · ' + venue : '');
+  c.scrollIntoView({behavior: 'smooth'});
+});
+render();
+
+/* ================= WhatsApp bot simulator ================= */
+var waBody = document.getElementById('waBody');
+function waAdd(text, who){
+  var d = document.createElement('div');
+  d.className = 'msg ' + who; d.textContent = text;
+  waBody.appendChild(d); waBody.scrollTop = waBody.scrollHeight;
+}
+function waBot(text){ setTimeout(function(){ waAdd(text, 'bot'); }, 450); }
+var WA_PRICES = 'Live wedding painting — Deepika\'s real price list:\n24x30 in: Classic Rs 26,000+ · Signature Rs 30,000+ · Studio Touch Rs 40,000+ · Heirloom Rs 75,000+\n24x36 in: Classic Rs 35,000+ · Signature Rs 45,000+ · Studio Touch Rs 60,000+ · Studio Touch+ / Heirloom Rs 90,000+\nAll prices plus travel. Rs 5,000 advance blocks your date, balance on handover.';
+document.getElementById('waBtns').addEventListener('click', function(e){
+  var key = e.target.getAttribute('data-wa');
+  if(!key) return;
+  if(key === 'hi'){ waAdd('Hi', 'me'); waBot('Hello! Welcome to Deepikaz Art.\nI\'m Deepika\'s assistant. Ask me about:\n- Live wedding painting\n- Painting prices & sizes\n- The pre-recorded workshop\nTap a button below!'); }
+  if(key === 'price'){ waAdd('Painting prices', 'me'); waBot(WA_PRICES + '\nFor a custom painting from your photo, send the photo here and I\'ll get your exact quote.'); }
+  if(key === 'wedding'){ waAdd('Wedding booking', 'me'); waBot('Wonderful! Wedding dates book out fast.\nShare your wedding date + city here — I\'ll check Deepika\'s calendar instantly. A Rs 5,000 advance holds the date; she arrives 2–3 hours early and paints live for 5–7 hours.'); }
+  if(key === 'workshop'){ waAdd('Workshop', 'me'); waBot('The pre-recorded workshop lets you learn at your own pace.\nIn the live version you pay here in chat and get instant access — no waiting for a DM reply.'); }
+});
+waAdd('Hello! Tap "Say Hi" below to start — just like a client would.', 'bot');
+
+/* ================= Paint & Play — palette ================= */
+var COLORS = [
+  ['#c0392b','Classic Red'], ['#7a2e35','Deep Rose'], ['#e77e95','Pink'], ['#e67e22','Marigold Orange'],
+  ['#f2b134','Gold Yellow'], ['#f6d7b0','Skin Tone'], ['#7fb069','Leaf Green'], ['#1d7a3a','Deep Green'],
+  ['#2f6f9f','Peacock Blue'], ['#5d4a7a','Royal Purple'], ['#8a5a2b','Earth Brown'], ['#ffffff','White'],
+  ['#23201c','Charcoal']
+];
+var currentColour = COLORS[0][0];
+var paletteEl = document.getElementById('palette');
+COLORS.forEach(function(pair, i){
+  var b = document.createElement('button');
+  b.type = 'button'; b.className = 'swatch' + (i === 0 ? ' active' : '');
+  b.style.background = pair[0]; b.title = pair[1]; b.setAttribute('aria-label', pair[1]);
+  b.setAttribute('data-colour', pair[0]); b.setAttribute('data-name', pair[1]);
+  paletteEl.appendChild(b);
+});
+var curLabel = document.createElement('span');
+curLabel.className = 'cur'; curLabel.id = 'curColourLabel';
+curLabel.textContent = 'Colour: ' + COLORS[0][1];
+paletteEl.appendChild(curLabel);
+paletteEl.addEventListener('click', function(e){
+  var b = e.target.closest('.swatch');
+  if(!b) return;
+  currentColour = b.getAttribute('data-colour');
+  document.querySelectorAll('#palette .swatch').forEach(function(x){ x.classList.remove('active'); });
+  b.classList.add('active');
+  curLabel.textContent = 'Colour: ' + b.getAttribute('data-name');
+  setEraser(false);
+});
+
+/* ================= Game mode switch ================= */
+document.getElementById('gameModes').addEventListener('click', function(e){
+  var b = e.target.closest('button[data-mode]');
+  if(!b) return;
+  document.querySelectorAll('#gameModes button').forEach(function(x){ x.classList.remove('active'); });
+  b.classList.add('active');
+  var m = b.getAttribute('data-mode');
+  document.getElementById('mode-colour').style.display = (m === 'colour') ? 'block' : 'none';
+  document.getElementById('mode-free').style.display = (m === 'free') ? 'block' : 'none';
+});
+
+/* ================= Mode A — Colour It ================= */
+var activeTmpl = 'couple';
+document.querySelectorAll('.colour-svg .region').forEach(function(r){
+  r.setAttribute('data-default', r.getAttribute('fill') || '#ffffff');
+});
+function activeSvg(){ return document.getElementById('svg-' + activeTmpl); }
+function updateColourProgress(){
+  var regions = activeSvg().querySelectorAll('.region');
+  var done = 0;
+  regions.forEach(function(r){ if(r.getAttribute('data-coloured') === '1') done++; });
+  document.getElementById('colourCount').textContent = done;
+  document.getElementById('colourTotal').textContent = regions.length;
+  document.getElementById('progFill').style.width = (regions.length ? Math.round(done * 100 / regions.length) : 0) + '%';
+}
+document.getElementById('tmplRow').addEventListener('click', function(e){
+  var b = e.target.closest('button[data-tmpl]');
+  if(!b) return;
+  document.querySelectorAll('#tmplRow button').forEach(function(x){ x.classList.remove('active'); });
+  b.classList.add('active');
+  activeTmpl = b.getAttribute('data-tmpl');
+  document.querySelectorAll('.colour-svg').forEach(function(s){ s.classList.remove('active'); });
+  activeSvg().classList.add('active');
+  updateColourProgress();
+});
+document.querySelectorAll('.colour-svg').forEach(function(svg){
+  svg.addEventListener('click', function(e){
+    var r = e.target.closest('.region');
+    if(!r) return;
+    r.setAttribute('fill', currentColour);
+    r.setAttribute('data-coloured', '1');
+    updateColourProgress();
+  });
+});
+document.getElementById('btnResetColour').addEventListener('click', function(){
+  activeSvg().querySelectorAll('.region').forEach(function(r){
+    r.setAttribute('fill', r.getAttribute('data-default'));
+    r.removeAttribute('data-coloured');
+  });
+  updateColourProgress();
+});
+document.getElementById('btnSurprise').addEventListener('click', function(){
+  activeSvg().querySelectorAll('.region').forEach(function(r){
+    var c = COLORS[Math.floor(Math.random() * COLORS.length)][0];
+    r.setAttribute('fill', c);
+    r.setAttribute('data-coloured', '1');
+  });
+  updateColourProgress();
+});
+function downloadURI(uri, filename){
+  var a = document.createElement('a');
+  a.href = uri; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+}
+document.getElementById('btnDownloadColour').addEventListener('click', function(){
+  var clone = activeSvg().cloneNode(true);
+  clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  clone.setAttribute('width', '800'); clone.setAttribute('height', '640');
+  clone.classList.remove('active');
+  clone.style.display = 'block';
+  var xml = new XMLSerializer().serializeToString(clone);
+  var blob = new Blob([xml], {type: 'image/svg+xml;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var img = new Image();
+  img.onload = function(){
+    var cv = document.createElement('canvas');
+    cv.width = 800; cv.height = 640;
+    var cx = cv.getContext('2d');
+    cx.fillStyle = '#fffdf7'; cx.fillRect(0, 0, 800, 640);
+    cx.drawImage(img, 0, 0, 800, 640);
+    URL.revokeObjectURL(url);
+    downloadURI(cv.toDataURL('image/png'), 'my-deepikaz-artwork.png');
+  };
+  img.src = url;
+});
+updateColourProgress();
+
+/* ================= Mode B — Free Paint ================= */
+var fc = document.getElementById('freeCanvas');
+var fx = fc.getContext('2d');
+var PAPER = '#fffdf7';
+function fillCanvasPaper(){ fx.fillStyle = PAPER; fx.fillRect(0, 0, fc.width, fc.height); }
+fillCanvasPaper();
+var undoStack = [];
+function pushUndo(){
+  undoStack.push(fc.toDataURL());
+  if(undoStack.length > 30) undoStack.shift();
+}
+var drawing = false, lastX = 0, lastY = 0, eraserOn = false;
+function setEraser(on){
+  eraserOn = on;
+  var b = document.getElementById('btnEraser');
+  b.style.background = on ? '#7a2e35' : '';
+  b.style.color = on ? '#ffe9b0' : '';
+}
+document.getElementById('btnEraser').addEventListener('click', function(){ setEraser(!eraserOn); });
+function canvasPos(e){
+  var rect = fc.getBoundingClientRect();
+  return { x: (e.clientX - rect.left) * fc.width / rect.width, y: (e.clientY - rect.top) * fc.height / rect.height };
+}
+fc.addEventListener('pointerdown', function(e){
+  e.preventDefault();
+  pushUndo();
+  drawing = true;
+  var p = canvasPos(e); lastX = p.x; lastY = p.y;
+  try{ fc.setPointerCapture(e.pointerId); }catch(err){}
+  fx.beginPath(); fx.arc(lastX, lastY, Number(document.getElementById('brushSize').value) / 2, 0, Math.PI * 2);
+  fx.fillStyle = eraserOn ? PAPER : currentColour; fx.fill();
+});
+fc.addEventListener('pointermove', function(e){
+  if(!drawing) return;
+  e.preventDefault();
+  var p = canvasPos(e);
+  fx.beginPath(); fx.moveTo(lastX, lastY); fx.lineTo(p.x, p.y);
+  fx.strokeStyle = eraserOn ? PAPER : currentColour;
+  fx.lineWidth = Number(document.getElementById('brushSize').value);
+  fx.lineCap = 'round'; fx.lineJoin = 'round'; fx.stroke();
+  lastX = p.x; lastY = p.y;
+});
+['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+  fc.addEventListener(ev, function(){ drawing = false; });
+});
+document.getElementById('brushSize').addEventListener('input', function(e){
+  document.getElementById('brushVal').textContent = e.target.value + ' px';
+});
+document.getElementById('btnUndo').addEventListener('click', function(){
+  var prev = undoStack.pop();
+  if(!prev) return;
+  var img = new Image();
+  img.onload = function(){ fx.clearRect(0, 0, fc.width, fc.height); fx.drawImage(img, 0, 0); };
+  img.src = prev;
+});
+document.getElementById('btnClear').addEventListener('click', function(){
+  pushUndo(); fillCanvasPaper();
+});
+document.getElementById('btnDownloadFree').addEventListener('click', function(){
+  downloadURI(fc.toDataURL('image/png'), 'my-free-painting.png');
+});
+
+/* ================= Website chatbot ================= */
+var chatPanel = document.getElementById('chatPanel');
+var chatMsgs = document.getElementById('chatMsgs');
+var chatOpened = false;
+document.getElementById('chatFab').addEventListener('click', function(){
+  chatPanel.classList.toggle('open');
   if(!chatOpened){
     chatOpened = true;
-    cBot('Hi! I\'m Deepika\'s assistant 🎨 Ask me about live wedding painting, custom painting prices, or the workshop — or tap a question below.');
+    cBot('Hi! I\'m Deepika\'s assistant. Ask me about live wedding painting, custom painting prices, or the workshop — or tap a question below. Psst: there is also a Paint & Play game tab where you can try painting yourself!');
   }
 });
 function cAdd(text, who){
-  const d = document.createElement('div');
+  var d = document.createElement('div');
   d.className = 'cmsg ' + who; d.textContent = text;
-  msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+  chatMsgs.appendChild(d); chatMsgs.scrollTop = chatMsgs.scrollHeight;
 }
-function cBot(text){ setTimeout(() => cAdd(text, 'bot'), 350); }
+function cBot(text){ setTimeout(function(){ cAdd(text, 'bot'); }, 350); }
+var PRICE_TEXT = 'Live wedding painting prices (her real brochure list):\n24x30 in — Classic Rs 26,000+, Signature Rs 30,000+, Studio Touch Rs 40,000+, Heirloom Rs 75,000+\n24x36 in — Classic Rs 35,000+, Signature Rs 45,000+, Studio Touch Rs 60,000+, Studio Touch+ / Heirloom Rs 90,000+\nAll plus travel. Tap a size in the Live Painting & Prices tab and it carries into your enquiry automatically.';
 function answer(q){
-  const t = q.toLowerCase();
-  if(t.includes('wedding') && (t.includes('price') || t.includes('cost') || t.includes('charge')))
-    return '💍 Live wedding painting is quoted by canvas size & city — A2 (16×24 in) is the most popular. Share your date + city in the enquiry form above and Deepika confirms availability + exact quote. Dates book out fast!';
-  if(t.includes('price') || t.includes('cost') || t.includes('custom'))
-    return '🖼️ Custom paintings (demo prices): A4 from ₹4,999 · A3 from ₹9,999 · A2 from ₹19,999 · 24×36 in from ₹34,999 · 36×48 in from ₹49,999. Premium pieces go up to ₹50,000. Final quote depends on your photo & detail.';
-  if(t.includes('book') || t.includes('enquire') || t.includes('order') || t.includes('how'))
-    return '📝 Use the enquiry form on this page — name, WhatsApp, service, date, city. In the live version Deepika gets it instantly on WhatsApp and your date can be held with an advance.';
-  if(t.includes('travel') || t.includes('city') || t.includes('come') || t.includes('location') || t.includes('worldwide'))
-    return '✈️ Yes — Deepika paints at weddings across India and worldwide. Mention your city in the enquiry and travel is arranged with the booking.';
-  if(t.includes('workshop') || t.includes('learn') || t.includes('course') || t.includes('class'))
-    return '💻 The pre-recorded workshop lets you learn at your own pace. In the live version you pay online and get instant access — no DM needed.';
-  if(t.includes('contact') || t.includes('email') || t.includes('phone') || t.includes('call'))
-    return '✉️ You can reach Deepika at deepikaz.art24@gmail.com — or just send the enquiry form here, it reaches her instantly.';
-  if(t.includes('experience') || t.includes('events') || t.includes('who'))
-    return '🎨 Deepika (DFA, ADFA, BFA) has 6+ years in the art field and has painted at 60+ events — she is known as South India\'s pioneering live wedding painting artist.';
-  if(t.includes('hi') || t.includes('hello') || t.includes('hey'))
-    return 'Hello! 🙏 Ask me about wedding painting, custom painting prices, travel, or the workshop.';
-  return 'I can help with wedding painting, custom painting prices & sizes, travel, and the workshop. For anything else, email deepikaz.art24@gmail.com — in the live version, Deepika takes over the chat here seamlessly.';
+  var t = q.toLowerCase();
+  if(t.indexOf('game') !== -1 || t.indexOf('play') !== -1 || t.indexOf('paint myself') !== -1)
+    return 'There is a Paint & Play tab on this page — colour a wedding couple, a peacock or a mandala, or paint freely on a blank canvas and download your artwork. Go on, try it!';
+  if(t.indexOf('wedding') !== -1 && (t.indexOf('price') !== -1 || t.indexOf('cost') !== -1 || t.indexOf('charge') !== -1))
+    return PRICE_TEXT;
+  if(t.indexOf('price') !== -1 || t.indexOf('cost') !== -1 || t.indexOf('custom') !== -1)
+    return PRICE_TEXT + '\nFor a custom painting from your photo, the exact quote depends on size and detail — send an enquiry and Deepika confirms it.';
+  if(t.indexOf('book') !== -1 || t.indexOf('enquire') !== -1 || t.indexOf('order') !== -1 || t.indexOf('how') !== -1)
+    return 'Use the Enquire tab — name, WhatsApp, service, date, city. A Rs 5,000 advance blocks your date and the balance is paid on handover of the painting. In the live version Deepika gets the enquiry instantly on WhatsApp.';
+  if(t.indexOf('travel') !== -1 || t.indexOf('city') !== -1 || t.indexOf('come') !== -1 || t.indexOf('location') !== -1 || t.indexOf('worldwide') !== -1)
+    return 'Yes — Deepika paints at weddings across India and worldwide (travel is charged extra, at actuals). Mention your city in the enquiry and travel is arranged with the booking.';
+  if(t.indexOf('workshop') !== -1 || t.indexOf('learn') !== -1 || t.indexOf('course') !== -1 || t.indexOf('class') !== -1)
+    return 'The pre-recorded workshop lets you learn at your own pace. In the live version you pay online and get instant access — no DM needed.';
+  if(t.indexOf('contact') !== -1 || t.indexOf('email') !== -1 || t.indexOf('phone') !== -1 || t.indexOf('call') !== -1)
+    return 'You can reach Deepika at deepikaz.art24@gmail.com — or just send the enquiry form here, it reaches her instantly.';
+  if(t.indexOf('experience') !== -1 || t.indexOf('events') !== -1 || t.indexOf('who') !== -1)
+    return 'Deepika (DFA, ADFA, BFA) has 6+ years in the art field and has painted at 60+ events — she is known as South India\'s pioneering live wedding painting artist.';
+  if(t.indexOf('photo') !== -1 || t.indexOf('gallery') !== -1 || t.indexOf('real') !== -1)
+    return 'The gallery currently shows placeholder tiles — Deepika is sharing 10–15 of her best real paintings, and as soon as they arrive every placeholder is replaced with her actual work.';
+  if(t.indexOf('hi') !== -1 || t.indexOf('hello') !== -1 || t.indexOf('hey') !== -1)
+    return 'Hello! Ask me about wedding painting, prices, travel, the workshop — or open the Paint & Play tab for a quick game.';
+  return 'I can help with wedding painting, prices & sizes, travel, the workshop and the Paint & Play game. For anything else, email deepikaz.art24@gmail.com — in the live version, Deepika takes over the chat here seamlessly.';
 }
 function askChat(q){
   if(!q.trim()) return;
   cAdd(q, 'me'); cBot(answer(q));
 }
-document.getElementById('chatSend').addEventListener('click', () => {
-  const inp = document.getElementById('chatText');
+document.getElementById('chatSend').addEventListener('click', function(){
+  var inp = document.getElementById('chatText');
   askChat(inp.value); inp.value = '';
 });
-document.getElementById('chatText').addEventListener('keydown', e => {
-  if(e.key === 'Enter'){ const inp = e.target; askChat(inp.value); inp.value = ''; }
+document.getElementById('chatText').addEventListener('keydown', function(e){
+  if(e.key === 'Enter'){ askChat(e.target.value); e.target.value = ''; }
 });
-document.getElementById('chatChips').addEventListener('click', e => {
+document.getElementById('chatChips').addEventListener('click', function(e){
   if(e.target.tagName === 'BUTTON') askChat(e.target.textContent);
 });
 </script>
