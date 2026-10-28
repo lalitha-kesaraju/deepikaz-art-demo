@@ -141,6 +141,47 @@
   #freeCanvas{width:100%;height:auto;background:#fffdf7;border:1.5px solid #d9c28a;border-radius:12px;touch-action:none;cursor:crosshair;display:block}
   .game-cta{margin:18px 22px 0;text-align:center;background:#fffaf0;border:1px solid #ecd9ac;border-radius:14px;padding:18px;font-family:Arial,sans-serif}
   .game-cta p{font-family:Georgia,serif;font-size:18px;color:var(--rose);margin-bottom:12px;line-height:1.45}
+
+  /* ---------- Gallery wow / lightbox ---------- */
+  .art-card{cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+  .art-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(122,46,53,.18)}
+  .art img{transition:transform .4s ease}
+  .art-card:hover .art img{transform:scale(1.07)}
+  .art .view-chip{position:absolute;right:8px;bottom:8px;background:rgba(43,29,5,.85);color:#ffe9b0;font-family:Arial,sans-serif;font-size:11.5px;font-weight:bold;padding:5px 11px;border-radius:99px;opacity:0;transition:opacity .2s;pointer-events:none}
+  .art-card:hover .view-chip{opacity:1}
+  #lightbox{position:fixed;inset:0;background:rgba(22,13,4,.93);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:90;display:none;align-items:center;justify-content:center;padding:18px;font-family:Arial,sans-serif}
+  #lightbox.open{display:flex}
+  .lb-box{max-width:min(92vw,640px);width:100%;text-align:center}
+  .lb-box img{max-width:100%;max-height:60vh;object-fit:contain;border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.6);background:#2b1d05}
+  .lb-box figcaption{color:#fdf3d8;padding-top:14px}
+  .lb-top{display:flex;align-items:baseline;justify-content:center;gap:10px;flex-wrap:wrap}
+  .lb-top b{font-family:Georgia,serif;font-size:21px;color:#ffe9b0}
+  .lb-count{font-size:12.5px;color:#cbb27a}
+  .lb-cat{display:inline-block;margin-top:7px;background:var(--rose);color:#ffe9b0;font-size:11.5px;font-weight:bold;border-radius:99px;padding:3px 11px}
+  .lb-cap{font-size:14px;line-height:1.6;color:#f3e6c8;font-style:italic;margin:10px auto 0;max-width:520px}
+  .lb-actions{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:14px}
+  .lb-actions a{color:#e9c46a;font-size:13.5px;font-weight:bold}
+  .lb-close{position:absolute;top:14px;right:16px;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(43,29,5,.7);color:#ffe9b0;font-size:24px;line-height:1;cursor:pointer}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(43,29,5,.7);color:#ffe9b0;font-size:26px;line-height:1;cursor:pointer;z-index:2}
+  .lb-prev{left:12px}.lb-next{right:12px}
+  @media (max-width:560px){.lb-nav{top:auto;bottom:16px;transform:none}.lb-prev{left:16px}.lb-next{right:16px}.lb-box img{max-height:52vh}}
+  /* ---------- Game neat ---------- */
+  .palette{background:var(--paper);border:1px solid #ecd9ac;border-radius:14px;margin:14px 22px 0;padding:13px 15px;box-shadow:0 4px 14px rgba(122,46,53,.07)}
+  .palette .pal-label{width:100%;font-weight:bold;color:var(--rose);font-size:13.5px;letter-spacing:.2px}
+  .palette .swatch{width:38px;height:38px;transition:transform .15s}
+  .palette .swatch:hover{transform:scale(1.1)}
+  .palette .cur{background:var(--rose);color:#ffe9b0;border-radius:99px;padding:6px 13px;font-size:12.5px;font-weight:bold;margin-left:auto}
+  .mode-row{justify-content:center}
+  .tmpl-row{justify-content:center}
+  .game-box{border-radius:16px;box-shadow:0 8px 22px rgba(122,46,53,.09);padding:18px}
+  .colour-stage{padding:14px;box-shadow:inset 0 2px 8px rgba(92,75,50,.08)}
+  .colour-svg{filter:drop-shadow(0 5px 10px rgba(92,75,50,.16))}
+  .tool-row{border-top:1px dashed #e5d3a0;padding-top:13px;justify-content:center}
+  .tool-row input[type=range]{accent-color:var(--rose)}
+  #freeCanvas{box-shadow:0 8px 20px rgba(92,75,50,.16);border-width:2px}
+  .steps-mini{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;padding:12px 22px 0;font-family:Arial,sans-serif}
+  .steps-mini span{background:#fff;border:1.5px solid var(--gold);color:#7a5b23;border-radius:99px;padding:6px 13px;font-size:12.5px;font-weight:bold}
+  .steps-mini b{color:var(--rose)}
   /* ---------- Chatbot ---------- */
   #chatFab{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle at 32% 28%,var(--rose2),var(--rose) 70%);cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.4);z-index:60;display:flex;align-items:center;justify-content:center;padding:0}
   #chatFab::after{content:'';position:absolute;top:1px;right:1px;width:13px;height:13px;border-radius:50%;background:#25d366;border:2px solid var(--cream)}
@@ -234,7 +275,7 @@
     <section class="tabpage" id="page-gallery">
       <h2 class="sec">Gallery</h2>
       <p class="secsub">A first look at the kind of work Deepika creates — live wedding paintings, custom portraits and more of her artwork.</p>
-      <div class="note"><b>Real paintings:</b> every picture below is Deepika's own work, shared from her Instagram @deepikaz.art with her permission — live wedding paintings, custom portraits and more of her artwork. See a style you like? Tap Enquire and mention it.</div>
+      <div class="note"><b>Real paintings:</b> every picture below is Deepika's own work, shared from her Instagram @deepikaz.art with her permission — live wedding paintings, custom portraits and more of her artwork. See a style you like? Tap Enquire and mention it.<br><b>Tap any painting</b> to see it full-screen.</div>
       <div class="chips-row" id="galleryFilters">
         <button data-filter="all" class="active">All</button>
         <button data-filter="live">Live Weddings</button>
@@ -242,20 +283,20 @@
         <button data-filter="workshop">Art &amp; Exhibitions</button>
       </div>
       <div class="gallery-grid" id="galleryGrid">
-        <div class="art-card" data-cat="live"><div class="art"><img src="images/live-reveal.jpg" alt="A couple holding the live painting Deepika made at their wedding event" loading="lazy"></div><div class="meta"><b>The Couple, With Their Painting</b><span>Live Weddings</span></div></div>
-        <div class="art-card" data-cat="live"><div class="art"><img src="images/live-artist.jpg" alt="Deepika painting live on her easel at a wedding venue" loading="lazy"></div><div class="meta"><b>Painting Live at the Venue</b><span>Live Weddings</span></div></div>
-        <div class="art-card" data-cat="live"><div class="art"><img src="images/live-closeup.jpg" alt="Close-up of Deepika's hand painting a couple portrait live at an event" loading="lazy"></div><div class="meta"><b>Painted Live, In Front of Your Guests</b><span>Live Weddings</span></div></div>
-        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-sunflower-couple.jpg" alt="Customised couple portrait with the woman in an orange saree under sunflowers" loading="lazy"></div><div class="meta"><b>Couple in Sunflowers</b><span>Custom Portraits</span></div></div>
-        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-wedding-couple.jpg" alt="Customised painting of a wedding couple in pink and cream" loading="lazy"></div><div class="meta"><b>The Wedding Couple</b><span>Custom Portraits</span></div></div>
-        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-blue-couple.jpg" alt="Customised couple painting on A2 canvas, blue background and gold dress" loading="lazy"></div><div class="meta"><b>Blue & Gold Couple — A2 Canvas</b><span>Custom Portraits</span></div></div>
-        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-family-five.jpg" alt="Customised painting of a family of five at a wedding" loading="lazy"></div><div class="meta"><b>Family of Five — Wedding Portrait</b><span>Custom Portraits</span></div></div>
-        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-smiles.jpg" alt="Commissioned portrait of a smiling older couple" loading="lazy"></div><div class="meta"><b>Portraits That Make Them Smile</b><span>Custom Portraits</span></div></div>
-        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-family-a3.jpg" alt="Customised family portrait on A3 canvas with a heritage building" loading="lazy"></div><div class="meta"><b>Family Portrait — A3 Canvas</b><span>Custom Portraits</span></div></div>
-        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-cartoon.jpg" alt="Cartoonized custom portrait of a man with a cartoon character, on an easel" loading="lazy"></div><div class="meta"><b>Cartoonized Portrait</b><span>Custom Portraits</span></div></div>
-        <div class="art-card" data-cat="workshop"><div class="art"><img src="images/art-meenakshi.jpg" alt="Painting of Goddess Meenakshi Ambal in green and gold" loading="lazy"></div><div class="meta"><b>Meenakshi Ambal</b><span>Artwork</span></div></div>
-        <div class="art-card" data-cat="workshop"><div class="art"><img src="images/art-beach-night.jpg" alt="Painting of a couple on a beach at night under a full moon" loading="lazy"></div><div class="meta"><b>Beach Night — Full Moon</b><span>Artwork</span></div></div>
-        <div class="art-card" data-cat="workshop"><div class="art"><img src="images/art-tea-time.jpg" alt="Paper-cut style artwork of a woman held above a glass of tea" loading="lazy"></div><div class="meta"><b>Tea Time, For Her</b><span>Artwork</span></div></div>
-        <div class="art-card" data-cat="workshop"><div class="art"><img src="images/art-exhibition.jpg" alt="Deepika seated beside her framed paintings at an art exhibition" loading="lazy"></div><div class="meta"><b>At the Exhibition</b><span>Exhibitions</span></div></div>
+        <div class="art-card" data-cat="live" data-caption="Enjoyed the most at the event of this beautiful couple — her reaction was priceless." data-ig="https://www.instagram.com/p/DNwuGWIYsS5/"><div class="art"><img src="images/live-reveal.jpg" alt="A couple holding the live painting Deepika made at their wedding event" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>The Couple, With Their Painting</b><span>Live Weddings</span></div></div>
+        <div class="art-card" data-cat="live" data-caption="Deepika painting live at the wedding — easel up, canvas out, celebration all around." data-ig="https://www.instagram.com/p/DTp4WxuEfwB/"><div class="art"><img src="images/live-artist.jpg" alt="Deepika painting live on her easel at a wedding venue" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>Painting Live at the Venue</b><span>Live Weddings</span></div></div>
+        <div class="art-card" data-cat="live" data-caption="Live wedding painting, up close — the couple taking shape on canvas, stroke by stroke." data-ig="https://www.instagram.com/p/DM46aXHSw-S/"><div class="art"><img src="images/live-closeup.jpg" alt="Close-up of Deepika's hand painting a couple portrait live at an event" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>Painted Live, In Front of Your Guests</b><span>Live Weddings</span></div></div>
+        <div class="art-card" data-cat="custom" data-caption="Customised painting, made to order from their photo." data-ig="https://www.instagram.com/p/DN8kPH_Aezy/"><div class="art"><img src="images/custom-sunflower-couple.jpg" alt="Customised couple portrait with the woman in an orange saree under sunflowers" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>Couple in Sunflowers</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom" data-caption="Customised painting on A2-size canvas." data-ig="https://www.instagram.com/p/DMc0yX9SlAD/"><div class="art"><img src="images/custom-wedding-couple.jpg" alt="Customised painting of a wedding couple in pink and cream" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>The Wedding Couple</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom" data-caption="Customised couple painting on an A2-size canvas sheet." data-ig="https://www.instagram.com/p/DQRDFpAESCY/"><div class="art"><img src="images/custom-blue-couple.jpg" alt="Customised couple painting on A2 canvas, blue background and gold dress" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>Blue & Gold Couple — A2 Canvas</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom" data-caption="Customised painting of a family of five." data-ig="https://www.instagram.com/p/DVdo7irkQsG/"><div class="art"><img src="images/custom-family-five.jpg" alt="Customised painting of a family of five at a wedding" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>Family of Five — Wedding Portrait</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom" data-caption="Happily sent this commissioned order — painted the beautiful smiles of this family." data-ig="https://www.instagram.com/p/CyTZgBRSpcW/"><div class="art"><img src="images/custom-smiles.jpg" alt="Commissioned portrait of a smiling older couple" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>Portraits That Make Them Smile</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom" data-caption="Commission art, A3 size on canvas." data-ig="https://www.instagram.com/p/DFzbIRPxCyE/"><div class="art"><img src="images/custom-family-a3.jpg" alt="Customised family portrait on A3 canvas with a heritage building" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>Family Portrait — A3 Canvas</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom" data-caption="Cartoonized portrait of yours + your favourite cartoon character, in one frame." data-ig="https://www.instagram.com/p/DH3amhEhLGY/"><div class="art"><img src="images/custom-cartoon.jpg" alt="Cartoonized custom portrait of a man with a cartoon character, on an easel" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>Cartoonized Portrait</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="workshop" data-caption="Meenakshi Ambal." data-ig="https://www.instagram.com/p/De7Ojx7GX-g/"><div class="art"><img src="images/art-meenakshi.jpg" alt="Painting of Goddess Meenakshi Ambal in green and gold" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>Meenakshi Ambal</b><span>Artwork</span></div></div>
+        <div class="art-card" data-cat="workshop" data-caption="Beach night — full moon, with loved ones." data-ig="https://www.instagram.com/p/DGVddMWB3qo/"><div class="art"><img src="images/art-beach-night.jpg" alt="Painting of a couple on a beach at night under a full moon" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>Beach Night — Full Moon</b><span>Artwork</span></div></div>
+        <div class="art-card" data-cat="workshop" data-caption="For the women who work 24/7, tea time is the only relaxation. It's heaven." data-ig="https://www.instagram.com/p/C1d7b62yg2E/"><div class="art"><img src="images/art-tea-time.jpg" alt="Paper-cut style artwork of a woman held above a glass of tea" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>Tea Time, For Her</b><span>Artwork</span></div></div>
+        <div class="art-card" data-cat="workshop" data-caption="Art exhibition at Pondicherry Art Akademy — loved this experience." data-ig="https://www.instagram.com/p/C5YxD4DSP9C/"><div class="art"><img src="images/art-exhibition.jpg" alt="Deepika seated beside her framed paintings at an art exhibition" loading="lazy"><span class="view-chip">View full painting</span></div><div class="meta"><b>At the Exhibition</b><span>Exhibitions</span></div></div>
       </div>
       <div style="text-align:center;padding:8px 22px 0">
         <button class="btn" data-goto="enquire">Enquire about your date</button>
@@ -303,11 +344,13 @@
       <p class="secsub">Our little studio corner for visitors. Colour a picture, or paint your own — no rules, just play for a minute.</p>
       <div class="challenge"><b>Today's challenge:</b> colour the wedding couple in classic wedding colours — deep reds, golds and greens. Then try the peacock in full festive colour.</div>
 
-      <div class="palette" id="palette" aria-label="Colour palette"></div>
+      <div class="palette" id="palette" aria-label="Colour palette"><span class="pal-label">Pick your colour</span></div>
+
+      <div class="steps-mini"><span><b>1</b> Pick a colour</span><span><b>2</b> Tap to fill, or draw free</span><span><b>3</b> Download your artwork</span></div>
 
       <div class="mode-row" id="gameModes">
-        <button data-mode="colour" class="active">Mode A — Colour It</button>
-        <button data-mode="free">Mode B — Free Paint</button>
+        <button data-mode="colour" class="active">Colour It</button>
+        <button data-mode="free">Free Paint</button>
       </div>
 
       <div class="game-box" id="mode-colour">
@@ -385,7 +428,7 @@
 
       <div class="game-box" id="mode-free" style="display:none">
         <h3>Free Paint</h3>
-        <p class="sub">A blank canvas, all yours. Draw with your mouse or your finger — a house, a flower, your wedding venue, anything. Pick colours from the palette above.</p>
+        <p class="sub">A blank canvas, all yours. Draw with your mouse or your finger — a house, a flower, your wedding venue, anything. Pick colours from the palette above, set your brush size, and paint.</p>
         <canvas id="freeCanvas" width="800" height="480"></canvas>
         <div class="tool-row">
           <label for="brushSize">Brush size</label>
@@ -470,6 +513,25 @@
     </section>
   </div>
   <div class="foot-note">Deepikaz.Art — website built by SA Technologies.<br>All paintings © Deepika Arivazhagan — shared from her Instagram with her permission.</div>
+</div>
+
+
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Painting viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous painting">&#8249;</button>
+  <figure class="lb-box">
+    <img id="lbImg" src="" alt="">
+    <figcaption>
+      <div class="lb-top"><b id="lbTitle"></b><span class="lb-count" id="lbCount"></span></div>
+      <span class="lb-cat" id="lbCat"></span>
+      <p class="lb-cap" id="lbCap"></p>
+      <div class="lb-actions">
+        <a id="lbIg" href="#" target="_blank" rel="noopener">See the original post on Instagram</a>
+        <button class="btn small" id="lbEnquire" type="button">Enquire about a painting like this</button>
+      </div>
+    </figcaption>
+  </figure>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next painting">&#8250;</button>
 </div>
 
 <button id="chatFab" title="Chat with Deepika's assistant" aria-label="Chat with Deepika's assistant">
@@ -629,6 +691,44 @@ document.getElementById('waBtns').addEventListener('click', function(e){
   if(key === 'workshop'){ waAdd('Workshop', 'me'); waBot('The pre-recorded workshop lets you learn at your own pace.\nIn the live version you pay here in chat and get instant access — no waiting for a DM reply.'); }
 });
 waAdd('Hello! Tap "Say Hi" below to start — just like a client would.', 'bot');
+
+
+/* ================= Gallery lightbox ================= */
+var lbEl = document.getElementById('lightbox');
+var lbList = [], lbIdx = 0;
+function lbCards(){ return Array.prototype.filter.call(document.querySelectorAll('#galleryGrid .art-card'), function(c){ return !c.classList.contains('hidden'); }); }
+function lbShow(i){
+  lbList = lbCards();
+  if(!lbList.length) return;
+  lbIdx = ((i % lbList.length) + lbList.length) % lbList.length;
+  var card = lbList[lbIdx];
+  var img = card.querySelector('img');
+  document.getElementById('lbImg').src = img.getAttribute('src');
+  document.getElementById('lbImg').alt = img.getAttribute('alt') || '';
+  document.getElementById('lbTitle').textContent = card.querySelector('.meta b').textContent;
+  document.getElementById('lbCat').textContent = card.querySelector('.meta span').textContent;
+  document.getElementById('lbCap').textContent = card.getAttribute('data-caption') || '';
+  document.getElementById('lbIg').href = card.getAttribute('data-ig') || 'https://www.instagram.com/deepikaz.art/';
+  document.getElementById('lbCount').textContent = (lbIdx + 1) + ' / ' + lbList.length;
+}
+function lbOpen(i){ lbShow(i); lbEl.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function lbCloseFn(){ lbEl.classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('galleryGrid').addEventListener('click', function(e){
+  var card = e.target.closest('.art-card');
+  if(!card) return;
+  lbOpen(lbCards().indexOf(card));
+});
+document.getElementById('lbClose').addEventListener('click', lbCloseFn);
+document.getElementById('lbPrev').addEventListener('click', function(){ lbShow(lbIdx - 1); });
+document.getElementById('lbNext').addEventListener('click', function(){ lbShow(lbIdx + 1); });
+lbEl.addEventListener('click', function(e){ if(e.target === lbEl) lbCloseFn(); });
+document.addEventListener('keydown', function(e){
+  if(!lbEl.classList.contains('open')) return;
+  if(e.key === 'Escape') lbCloseFn();
+  if(e.key === 'ArrowLeft') lbShow(lbIdx - 1);
+  if(e.key === 'ArrowRight') lbShow(lbIdx + 1);
+});
+document.getElementById('lbEnquire').addEventListener('click', function(){ lbCloseFn(); showTab('enquire'); });
 
 /* ================= Paint & Play — palette ================= */
 var COLORS = [
