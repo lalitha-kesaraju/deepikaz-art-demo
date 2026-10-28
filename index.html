@@ -55,7 +55,11 @@
   .gallery-grid{padding:14px 22px 4px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
   .art-card{background:var(--paper);border:1px solid #ecd9ac;border-radius:14px;overflow:hidden;font-family:Arial,sans-serif}
   .art-card.hidden{display:none}
-  .art{height:150px;position:relative;display:flex;align-items:center;justify-content:center}
+  .art{height:215px;position:relative;overflow:hidden;background:#f3e6c8}
+  .art img{width:100%;height:100%;object-fit:cover;display:block}
+  .featured{margin:16px 22px 0}
+  .featured img{width:100%;height:320px;object-fit:cover;object-position:center 30%;border-radius:16px;display:block;box-shadow:0 10px 26px rgba(122,46,53,.25)}
+  .featured figcaption{font-family:Arial,sans-serif;font-size:12.5px;color:#8a6a2f;text-align:center;padding-top:7px}
   .art svg{opacity:.55}
   .art .ph-label{position:absolute;left:8px;right:8px;bottom:8px;background:rgba(255,253,247,.92);border:1px dashed var(--gold);border-radius:8px;font-size:11px;color:#7a5b23;text-align:center;padding:5px 6px;line-height:1.4}
   .art-card .meta{padding:10px 12px}
@@ -159,7 +163,7 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="demo-banner">DEMO built by SA Technologies — placeholder images for now; Deepika's real paintings will replace them as soon as she shares her photos. No real payments on this page.</div>
+  <div class="demo-banner">Preview built by SA Technologies — now with Deepika's real paintings, shared from her Instagram with her permission. No real payments on this page.</div>
   <div class="card">
     <nav class="tabnav" id="tabNav" aria-label="Site sections">
       <button data-tab="home" class="active">Home</button>
@@ -182,6 +186,8 @@
           <div class="stat"><b>Worldwide</b><span>travels for events</span></div>
         </div>
       </div>
+
+      <figure class="featured"><img src="images/live-reveal.jpg" alt="A couple holding the live painting Deepika made at their wedding"><figcaption>Painted live at their wedding — and handed over the same evening.</figcaption></figure>
 
       <div class="services">
         <div class="svc">
@@ -227,27 +233,29 @@
     <!-- ================= GALLERY ================= -->
     <section class="tabpage" id="page-gallery">
       <h2 class="sec">Gallery</h2>
-      <p class="secsub">A first look at the kind of work Deepika creates — live wedding paintings, custom portraits and workshop pieces.</p>
-      <div class="note"><b>Please note:</b> these are placeholder tiles for now. Deepika is sharing 10–15 of her best real paintings, and the moment they arrive, every placeholder here will be replaced with her actual work — live-event paintings, finished couple paintings and custom orders.</div>
+      <p class="secsub">A first look at the kind of work Deepika creates — live wedding paintings, custom portraits and more of her artwork.</p>
+      <div class="note"><b>Real paintings:</b> every picture below is Deepika's own work, shared from her Instagram @deepikaz.art with her permission — live wedding paintings, custom portraits and more of her artwork. See a style you like? Tap Enquire and mention it.</div>
       <div class="chips-row" id="galleryFilters">
         <button data-filter="all" class="active">All</button>
         <button data-filter="live">Live Weddings</button>
         <button data-filter="custom">Custom Portraits</button>
-        <button data-filter="workshop">Workshops</button>
+        <button data-filter="workshop">Art &amp; Exhibitions</button>
       </div>
       <div class="gallery-grid" id="galleryGrid">
-        <div class="art-card" data-cat="live"><div class="art g1"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M12 21c-4-3.5-8-6.6-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 3.5C20 14.4 16 17.5 12 21Z"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>The Wedding Moment</b><span>Live Weddings</span></div></div>
-        <div class="art-card" data-cat="custom"><div class="art g2"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c1-3.6 3.8-5.4 7-5.4s6 1.8 7 5.4"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Couple Portrait</b><span>Custom Portraits</span></div></div>
-        <div class="art-card" data-cat="live"><div class="art g3"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="9" cy="12" r="4"/><circle cx="15" cy="12" r="4"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Exchange of Rings</b><span>Live Weddings</span></div></div>
-        <div class="art-card" data-cat="workshop"><div class="art g4"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M4 20L14.5 9.5"/><path d="M14.5 9.5l3-3L20 9l-3 3z"/><circle cx="5.5" cy="18.5" r="1.6"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Workshop Canvas</b><span>Workshops</span></div></div>
-        <div class="art-card" data-cat="custom"><div class="art g5"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="8" cy="9" r="2.4"/><circle cx="16" cy="9" r="2.4"/><circle cx="12" cy="7.4" r="2"/><path d="M3.5 20c.8-3 3.4-4.6 8.5-4.6s7.7 1.6 8.5 4.6"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Family of Five</b><span>Custom Portraits</span></div></div>
-        <div class="art-card" data-cat="live"><div class="art g6"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M12 3v4M12 7l-5 13h10z"/><circle cx="12" cy="14" r="1.4"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>The Grand Entry</b><span>Live Weddings</span></div></div>
-        <div class="art-card" data-cat="workshop"><div class="art g7"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.5 5.5l2 2M16.5 16.5l2 2M18.5 5.5l-2 2M7.5 16.5l-2 2"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Colours of Morning</b><span>Workshops</span></div></div>
-        <div class="art-card" data-cat="custom"><div class="art g8"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M12 21c-5-1.2-7-4.8-7-9V5.5L12 3l7 2.5V12c0 4.2-2 7.8-7 9z"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Heirloom Piece</b><span>Custom Portraits</span></div></div>
-        <div class="art-card" data-cat="live"><div class="art g9"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M4 19c4-1 5-6 8-6s3 4 8 4"/><circle cx="9" cy="8" r="2.2"/><circle cx="16" cy="6.5" r="1.7"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>First Dance</b><span>Live Weddings</span></div></div>
-        <div class="art-card" data-cat="custom"><div class="art g10"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="12" cy="10" r="2.4"/><path d="M5 19c1.4-2.8 4-4.2 7-4.2s5.6 1.4 7 4.2"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>From Your Photo</b><span>Custom Portraits</span></div></div>
-        <div class="art-card" data-cat="workshop"><div class="art g11"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M12 20c-4-4-6-7-6-10a6 6 0 0 1 12 0c0 3-2 6-6 10z"/><circle cx="12" cy="10" r="2"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>Mandala Practice</b><span>Workshops</span></div></div>
-        <div class="art-card" data-cat="live"><div class="art g12"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M3 16h18M5 16c0-4 3-7 7-7s7 3 7 7"/><path d="M9 9V5M15 9V5"/></svg><span class="ph-label">Placeholder — Deepika's real painting will appear here</span></div><div class="meta"><b>The Venue, Painted</b><span>Live Weddings</span></div></div>
+        <div class="art-card" data-cat="live"><div class="art"><img src="images/live-reveal.jpg" alt="A couple holding the live painting Deepika made at their wedding event" loading="lazy"></div><div class="meta"><b>The Couple, With Their Painting</b><span>Live Weddings</span></div></div>
+        <div class="art-card" data-cat="live"><div class="art"><img src="images/live-artist.jpg" alt="Deepika painting live on her easel at a wedding venue" loading="lazy"></div><div class="meta"><b>Painting Live at the Venue</b><span>Live Weddings</span></div></div>
+        <div class="art-card" data-cat="live"><div class="art"><img src="images/live-closeup.jpg" alt="Close-up of Deepika's hand painting a couple portrait live at an event" loading="lazy"></div><div class="meta"><b>Painted Live, In Front of Your Guests</b><span>Live Weddings</span></div></div>
+        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-sunflower-couple.jpg" alt="Customised couple portrait with the woman in an orange saree under sunflowers" loading="lazy"></div><div class="meta"><b>Couple in Sunflowers</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-wedding-couple.jpg" alt="Customised painting of a wedding couple in pink and cream" loading="lazy"></div><div class="meta"><b>The Wedding Couple</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-blue-couple.jpg" alt="Customised couple painting on A2 canvas, blue background and gold dress" loading="lazy"></div><div class="meta"><b>Blue & Gold Couple — A2 Canvas</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-family-five.jpg" alt="Customised painting of a family of five at a wedding" loading="lazy"></div><div class="meta"><b>Family of Five — Wedding Portrait</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-smiles.jpg" alt="Commissioned portrait of a smiling older couple" loading="lazy"></div><div class="meta"><b>Portraits That Make Them Smile</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-family-a3.jpg" alt="Customised family portrait on A3 canvas with a heritage building" loading="lazy"></div><div class="meta"><b>Family Portrait — A3 Canvas</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="custom"><div class="art"><img src="images/custom-cartoon.jpg" alt="Cartoonized custom portrait of a man with a cartoon character, on an easel" loading="lazy"></div><div class="meta"><b>Cartoonized Portrait</b><span>Custom Portraits</span></div></div>
+        <div class="art-card" data-cat="workshop"><div class="art"><img src="images/art-meenakshi.jpg" alt="Painting of Goddess Meenakshi Ambal in green and gold" loading="lazy"></div><div class="meta"><b>Meenakshi Ambal</b><span>Artwork</span></div></div>
+        <div class="art-card" data-cat="workshop"><div class="art"><img src="images/art-beach-night.jpg" alt="Painting of a couple on a beach at night under a full moon" loading="lazy"></div><div class="meta"><b>Beach Night — Full Moon</b><span>Artwork</span></div></div>
+        <div class="art-card" data-cat="workshop"><div class="art"><img src="images/art-tea-time.jpg" alt="Paper-cut style artwork of a woman held above a glass of tea" loading="lazy"></div><div class="meta"><b>Tea Time, For Her</b><span>Artwork</span></div></div>
+        <div class="art-card" data-cat="workshop"><div class="art"><img src="images/art-exhibition.jpg" alt="Deepika seated beside her framed paintings at an art exhibition" loading="lazy"></div><div class="meta"><b>At the Exhibition</b><span>Exhibitions</span></div></div>
       </div>
       <div style="text-align:center;padding:8px 22px 0">
         <button class="btn" data-goto="enquire">Enquire about your date</button>
@@ -461,7 +469,7 @@
       </div>
     </section>
   </div>
-  <div class="foot-note">Deepikaz.Art — demo experience built by SA Technologies.<br>Placeholder gallery: real paintings replace these tiles once Deepika shares her photos.</div>
+  <div class="foot-note">Deepikaz.Art — website built by SA Technologies.<br>All paintings © Deepika Arivazhagan — shared from her Instagram with her permission.</div>
 </div>
 
 <button id="chatFab" title="Chat with Deepika's assistant" aria-label="Chat with Deepika's assistant">
@@ -838,7 +846,7 @@ function answer(q){
   if(t.indexOf('experience') !== -1 || t.indexOf('events') !== -1 || t.indexOf('who') !== -1)
     return 'Deepika (DFA, ADFA, BFA) has 6+ years in the art field and has painted at 60+ events — she is known as South India\'s pioneering live wedding painting artist.';
   if(t.indexOf('photo') !== -1 || t.indexOf('gallery') !== -1 || t.indexOf('real') !== -1)
-    return 'The gallery currently shows placeholder tiles — Deepika is sharing 10–15 of her best real paintings, and as soon as they arrive every placeholder is replaced with her actual work.';
+    return 'Every painting in the Gallery tab is Deepika\'s real work — live wedding paintings, custom portraits and artwork shared from her Instagram with her permission. Open the Gallery tab to see them.';
   if(t.indexOf('hi') !== -1 || t.indexOf('hello') !== -1 || t.indexOf('hey') !== -1)
     return 'Hello! Ask me about wedding painting, prices, travel, the workshop — or open the Paint & Play tab for a quick game.';
   return 'I can help with wedding painting, prices & sizes, travel, the workshop and the Paint & Play game. For anything else, email deepikaz.art24@gmail.com — in the live version, Deepika takes over the chat here seamlessly.';
