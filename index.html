@@ -312,13 +312,13 @@
         <h3>Canvas 24 × 30 in</h3>
         <div class="row" data-size="24x30 in — Classic"><span>Classic</span><span>Rs 26,000+</span></div>
         <div class="row sel" data-size="24x30 in — Signature"><span>Signature <span class="pop">POPULAR</span></span><span>Rs 30,000+</span></div>
-        <div class="row" data-size="24x30 in — Studio Touch"><span>Studio Touch</span><span>Rs 40,000+</span></div>
+        <div class="row" data-size="24x30 in — Studio Touch"><span>Studio Touch <span class="pop">POPULAR</span></span><span>Rs 40,000+</span></div>
         <div class="row" data-size="24x30 in — Heirloom"><span>Heirloom</span><span>Rs 75,000+</span></div>
         <h3>Canvas 24 × 36 in</h3>
-        <div class="row" data-size="24x36 in — Classic"><span>Classic</span><span>Rs 35,000+</span></div>
-        <div class="row" data-size="24x36 in — Signature"><span>Signature</span><span>Rs 45,000+</span></div>
-        <div class="row" data-size="24x36 in — Studio Touch"><span>Studio Touch</span><span>Rs 60,000+</span></div>
-        <div class="row" data-size="24x36 in — Studio Touch+ / Heirloom"><span>Studio Touch+ / Heirloom</span><span>Rs 90,000+</span></div>
+        <div class="row" data-size="24x36 in — Classic"><span>Classic</span><span>Rs 35,000</span></div>
+        <div class="row" data-size="24x36 in — Signature"><span>Signature <span class="pop">POPULAR</span></span><span>Rs 45,000</span></div>
+        <div class="row" data-size="24x36 in — Studio Touch"><span>Studio Touch <span class="pop">POPULAR</span></span><span>Rs 60,000</span></div>
+        <div class="row" data-size="24x36 in — Studio Touch+ / Heirloom"><span>Studio Touch+ / Heirloom</span><span>Rs 90,000</span></div>
       </div>
       <div class="sel-line">Selected for your enquiry: <b id="selSizeLabel">24x30 in — Signature (Rs 30,000+)</b></div>
 
@@ -611,10 +611,10 @@ var PRICE_LABELS = {
   '24x30 in — Signature': '24x30 in — Signature (Rs 30,000+)',
   '24x30 in — Studio Touch': '24x30 in — Studio Touch (Rs 40,000+)',
   '24x30 in — Heirloom': '24x30 in — Heirloom (Rs 75,000+)',
-  '24x36 in — Classic': '24x36 in — Classic (Rs 35,000+)',
-  '24x36 in — Signature': '24x36 in — Signature (Rs 45,000+)',
-  '24x36 in — Studio Touch': '24x36 in — Studio Touch (Rs 60,000+)',
-  '24x36 in — Studio Touch+ / Heirloom': '24x36 in — Studio Touch+ / Heirloom (Rs 90,000+)'
+  '24x36 in — Classic': '24x36 in — Classic (Rs 35,000)',
+  '24x36 in — Signature': '24x36 in — Signature (Rs 45,000)',
+  '24x36 in — Studio Touch': '24x36 in — Studio Touch (Rs 60,000)',
+  '24x36 in — Studio Touch+ / Heirloom': '24x36 in — Studio Touch+ / Heirloom (Rs 90,000)'
 };
 var selSize = '24x30 in — Signature';
 function syncSize(){
@@ -681,7 +681,7 @@ function waAdd(text, who){
   waBody.appendChild(d); waBody.scrollTop = waBody.scrollHeight;
 }
 function waBot(text){ setTimeout(function(){ waAdd(text, 'bot'); }, 450); }
-var WA_PRICES = 'Live wedding painting — Deepika\'s real price list:\n24x30 in: Classic Rs 26,000+ · Signature Rs 30,000+ · Studio Touch Rs 40,000+ · Heirloom Rs 75,000+\n24x36 in: Classic Rs 35,000+ · Signature Rs 45,000+ · Studio Touch Rs 60,000+ · Studio Touch+ / Heirloom Rs 90,000+\nAll prices plus travel. Rs 5,000 advance blocks your date, balance on handover.';
+var WA_PRICES = 'Live wedding painting — Deepika\'s real price list:\n24x30 in: Classic Rs 26,000+ · Signature Rs 30,000+ · Studio Touch Rs 40,000+ · Heirloom Rs 75,000+\n24x36 in: Classic Rs 35,000 · Signature Rs 45,000 · Studio Touch Rs 60,000 · Studio Touch+ / Heirloom Rs 90,000\nAll prices plus travel. Rs 5,000 advance blocks your date, balance on handover.';
 document.getElementById('waBtns').addEventListener('click', function(e){
   var key = e.target.getAttribute('data-wa');
   if(!key) return;
@@ -926,7 +926,7 @@ function cAdd(text, who){
   chatMsgs.appendChild(d); chatMsgs.scrollTop = chatMsgs.scrollHeight;
 }
 function cBot(text){ setTimeout(function(){ cAdd(text, 'bot'); }, 350); }
-var PRICE_TEXT = 'Live wedding painting prices (her real brochure list):\n24x30 in — Classic Rs 26,000+, Signature Rs 30,000+, Studio Touch Rs 40,000+, Heirloom Rs 75,000+\n24x36 in — Classic Rs 35,000+, Signature Rs 45,000+, Studio Touch Rs 60,000+, Studio Touch+ / Heirloom Rs 90,000+\nAll plus travel. Tap a size in the Live Painting & Prices tab and it carries into your enquiry automatically.';
+var PRICE_TEXT = 'Live wedding painting prices (her real brochure list):\n24x30 in — Classic Rs 26,000+, Signature Rs 30,000+, Studio Touch Rs 40,000+, Heirloom Rs 75,000+\n24x36 in — Classic Rs 35,000, Signature Rs 45,000, Studio Touch Rs 60,000, Studio Touch+ / Heirloom Rs 90,000\nAll plus travel. Tap a size in the Live Painting & Prices tab and it carries into your enquiry automatically.';
 function answer(q){
   var t = q.toLowerCase();
   if(t.indexOf('game') !== -1 || t.indexOf('play') !== -1 || t.indexOf('paint myself') !== -1)
