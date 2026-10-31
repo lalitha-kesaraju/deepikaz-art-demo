@@ -86,6 +86,8 @@
   input,select{width:100%;padding:12px;border:1.5px solid #d9c28a;border-radius:10px;font-size:16px;background:#fff;font-family:Arial,sans-serif}
   .grid2{display:flex;gap:10px;flex-wrap:wrap}.grid2>div{flex:1;min-width:150px}
   button.cta{width:100%;margin:16px 0 8px;background:linear-gradient(90deg,var(--rose),var(--rose2));color:#ffe9b0;border:none;padding:15px;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer;letter-spacing:.5px;font-family:Arial,sans-serif}
+  .wa-float{position:fixed;right:16px;bottom:16px;z-index:999;background:#25D366;color:#fff;font-family:Arial,sans-serif;font-weight:bold;font-size:15px;padding:12px 18px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px}
+  .wa-send{display:block;text-align:center;margin-top:12px;background:#25D366;color:#fff;font-family:Arial,sans-serif;font-weight:bold;font-size:16px;padding:14px;border-radius:12px;text-decoration:none}
   .tiny{font-size:12px;color:#8a6a2f;text-align:center;padding:0 22px 18px;font-family:Arial,sans-serif;line-height:1.55}
   .confirm{display:none;margin:0 22px 20px;background:#eaf7ee;border:1.5px solid var(--green);border-radius:12px;padding:16px;font-family:Arial,sans-serif}
   .confirm h3{color:var(--green);margin-bottom:6px}
@@ -458,7 +460,7 @@
     <!-- ================= ENQUIRE ================= -->
     <section class="tabpage" id="page-enquire">
       <h2 class="sec">Check your date / enquire</h2>
-      <p class="secsub">Wedding dates book out fast — the live version checks Deepika's calendar before confirming. Your selected size from the Prices tab is carried in automatically.</p>
+      <p class="secsub">Wedding dates book out fast. Share your details below and your enquiry opens directly in Deepika's WhatsApp — she confirms every date personally. Your selected size from the Prices tab is carried in automatically.</p>
       <div class="sel-line">Painting size selected: <b id="enqSizeDisplay">24x30 in — Signature (Rs 30,000+)</b> &nbsp;<button class="btn small secondary" data-goto="prices" type="button" style="padding:5px 11px">Change</button></div>
       <form id="enqForm">
         <label for="name">Your name</label>
@@ -481,13 +483,14 @@
         <div class="err" id="err"></div>
         <button class="cta" type="submit">Send enquiry</button>
       </form>
-      <div class="tiny">In the live version this enquiry lands instantly on Deepika's WhatsApp &amp; dashboard — with an automatic reply to you. No enquiry gets lost in DM requests again.</div>
+      <div class="tiny">When you submit, your enquiry opens in WhatsApp addressed to Deepika — just press send there. No enquiry gets lost in DM requests again.</div>
 
       <div class="confirm" id="confirm">
-        <h3>Enquiry received (demo)</h3>
+        <h3>Your enquiry is ready to send</h3>
         <div class="id" id="enqId"></div>
         <p id="confirmText" style="margin-top:6px;font-size:14px"></p>
-        <p style="font-size:13px;margin-top:6px">The live version also holds your date with the Rs 5,000 advance payment link, and sends both sides a confirmation on WhatsApp.</p>
+        <a class="wa-send" id="waSend" href="#" target="_blank" rel="noopener">Send this enquiry to Deepika on WhatsApp</a>
+        <p style="font-size:13px;margin-top:8px">Deepika replies on WhatsApp herself and confirms your date personally. A Rs 5,000 advance then blocks the date.</p>
       </div>
 
       <div class="panel">
@@ -677,6 +680,15 @@ document.getElementById('enqForm').addEventListener('submit', function(e){
   c.style.display = 'block';
   document.getElementById('enqId').textContent = id;
   document.getElementById('confirmText').textContent = name + ' · ' + service + ' · Size ' + (PRICE_LABELS[selSize] || selSize) + (date ? ' · ' + date : '') + (venue ? ' · ' + venue : '');
+  var waMsg = 'Hello Deepika mam, I found your website and would like to enquire.\n'
+    + 'Name: ' + name + '\n'
+    + 'Service: ' + service + '\n'
+    + 'Size: ' + (PRICE_LABELS[selSize] || selSize) + '\n'
+    + (date ? 'Event date: ' + date + '\n' : '')
+    + (venue ? 'City / venue: ' + venue + '\n' : '')
+    + 'My WhatsApp number: ' + phone + '\n'
+    + 'Enquiry ID: ' + id;
+  document.getElementById('waSend').href = 'https://wa.me/917660834707?text=' + encodeURIComponent(waMsg);
   c.scrollIntoView({behavior: 'smooth'});
 });
 render();
@@ -944,7 +956,7 @@ function answer(q){
   if(t.indexOf('price') !== -1 || t.indexOf('cost') !== -1 || t.indexOf('custom') !== -1)
     return PRICE_TEXT + '\nFor a custom painting from your photo, the exact quote depends on size and detail — send an enquiry and Deepika confirms it.';
   if(t.indexOf('book') !== -1 || t.indexOf('enquire') !== -1 || t.indexOf('order') !== -1 || t.indexOf('how') !== -1)
-    return 'Use the Enquire tab — name, WhatsApp, service, date, city. A Rs 5,000 advance blocks your date and the balance is paid on handover of the painting. In the live version Deepika gets the enquiry instantly on WhatsApp.';
+    return 'Use the Enquire tab — name, WhatsApp, service, date, city. Your enquiry opens in Deepika\'s own WhatsApp, and she confirms dates personally. A Rs 5,000 advance blocks your date and the balance is paid on handover of the painting.';
   if(t.indexOf('travel') !== -1 || t.indexOf('city') !== -1 || t.indexOf('come') !== -1 || t.indexOf('location') !== -1 || t.indexOf('worldwide') !== -1)
     return 'Yes — Deepika paints at weddings across India and worldwide (travel is charged extra, at actuals). Mention your city in the enquiry and travel is arranged with the booking.';
   if(t.indexOf('workshop') !== -1 || t.indexOf('learn') !== -1 || t.indexOf('course') !== -1 || t.indexOf('class') !== -1)
@@ -974,5 +986,6 @@ document.getElementById('chatChips').addEventListener('click', function(e){
   if(e.target.tagName === 'BUTTON') askChat(e.target.textContent);
 });
 </script>
+<a class="wa-float" href="https://wa.me/917660834707?text=Hello%20Deepika%20mam%2C%20I%20found%20your%20website%20and%20have%20a%20question." target="_blank" rel="noopener" aria-label="Chat with Deepika on WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.2-.7l.5-.6c.1-.2.1-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg>Chat with Deepika</a>
 </body>
 </html>
