@@ -1013,6 +1013,10 @@ document.getElementById('galleryFilters').addEventListener('click', function(e){
   document.getElementById('bvPrev').addEventListener('click', function(){ show(cur - 1); });
   document.getElementById('bvNext').addEventListener('click', function(){ show(cur + 1); });
   img.addEventListener('click', function(){ img.classList.toggle('zoomed'); });
+  var pi = 0;
+  function preloadNext(){ if(pi >= pages.length) return; var im = new Image(); im.onload = im.onerror = preloadNext; im.src = pages[pi++]; }
+  if('requestIdleCallback' in window) requestIdleCallback(preloadNext, {timeout: 3000});
+  else window.addEventListener('load', function(){ setTimeout(preloadNext, 1200); });
   document.addEventListener('keydown', function(e){ if(!bv.classList.contains('open')) return; if(e.key === 'Escape') close(); if(e.key === 'ArrowLeft') show(cur - 1); if(e.key === 'ArrowRight') show(cur + 1); });
 })();
 
