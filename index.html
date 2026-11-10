@@ -212,10 +212,10 @@
   .chat-in button{background:var(--rose);color:#ffe9b0;border:none;padding:0 17px;font-size:15px;cursor:pointer}
   .foot-note{text-align:center;color:#cbb27a;font-family:Arial,sans-serif;font-size:11.5px;margin-top:12px;line-height:1.6}
   .brochure-strip{display:flex;gap:12px;overflow-x:auto;padding:6px 22px 14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-  .brochure-strip a{flex:0 0 auto;scroll-snap-align:start}
-  .brochure-strip img{height:340px;width:auto;border-radius:10px;border:1px solid #ecd9ac;box-shadow:0 4px 14px rgba(92,75,50,.18);display:block}
+  .brochure-strip a{flex:0 0 auto;scroll-snap-align:start;position:relative;display:block}
+  .brochure-strip img{width:min(82vw,400px);height:auto;border-radius:10px;border:1px solid #ecd9ac;box-shadow:0 4px 14px rgba(92,75,50,.18);display:block}
+  .brochure-strip .view-chip{top:10px;bottom:auto;right:10px}
   a.btn{text-decoration:none}
-  @media (max-width:560px){.brochure-strip img{height:300px}}
   @media (max-width:560px){.hero h1{font-size:38px}.hero h1 span{font-size:26px}.tabnav button{padding:8px 12px;font-size:12.5px}}
 </style>
 <script type="application/ld+json">
@@ -342,18 +342,18 @@
       </div>
 
             <h2 class="sec">Live Painting Brochure</h2>
-      <p class="secsub">Deepika's complete brochure — prices, painting styles, hybrid paintings and how booking works. Swipe through the pages, tap any page to open the full brochure, or download it as a PDF.</p>
+      <p class="secsub">Deepika's complete brochure — prices, painting styles, hybrid paintings and how booking works. Swipe through the pages — tap any page to view it full size — or download the whole brochure as a PDF.</p>
       <div style="text-align:center;margin:4px 0 12px">
         <a class="btn" href="brochure.pdf" download="Deepika-Live-Painting-Brochure.pdf">⬇ Download Brochure (PDF)</a>
       </div>
       <div class="brochure-strip" aria-label="Brochure pages">
-        <a href="brochure.pdf"><img src="brochure/page-1.jpg" alt="Deepika live painting brochure — page 1" loading="lazy"></a>
-        <a href="brochure.pdf"><img src="brochure/page-2.jpg" alt="Deepika live painting brochure — page 2" loading="lazy"></a>
-        <a href="brochure.pdf"><img src="brochure/page-3.jpg" alt="Deepika live painting brochure — page 3" loading="lazy"></a>
-        <a href="brochure.pdf"><img src="brochure/page-4.jpg" alt="Deepika live painting brochure — page 4" loading="lazy"></a>
-        <a href="brochure.pdf"><img src="brochure/page-5.jpg" alt="Deepika live painting brochure — page 5" loading="lazy"></a>
-        <a href="brochure.pdf"><img src="brochure/page-6.jpg" alt="Deepika live painting brochure — page 6" loading="lazy"></a>
-        <a href="brochure.pdf"><img src="brochure/page-7.jpg" alt="Deepika live painting brochure — page 7" loading="lazy"></a>
+        <a href="brochure/full-1.jpg" target="_blank" rel="noopener"><img src="brochure/page-1.jpg" alt="Deepika live painting brochure — page 1" loading="lazy"><span class="view-chip">Tap to view full image</span></a>
+        <a href="brochure/full-2.jpg" target="_blank" rel="noopener"><img src="brochure/page-2.jpg" alt="Deepika live painting brochure — page 2" loading="lazy"><span class="view-chip">Tap to view full image</span></a>
+        <a href="brochure/full-3.jpg" target="_blank" rel="noopener"><img src="brochure/page-3.jpg" alt="Deepika live painting brochure — page 3" loading="lazy"><span class="view-chip">Tap to view full image</span></a>
+        <a href="brochure/full-4.jpg" target="_blank" rel="noopener"><img src="brochure/page-4.jpg" alt="Deepika live painting brochure — page 4" loading="lazy"><span class="view-chip">Tap to view full image</span></a>
+        <a href="brochure/full-5.jpg" target="_blank" rel="noopener"><img src="brochure/page-5.jpg" alt="Deepika live painting brochure — page 5" loading="lazy"><span class="view-chip">Tap to view full image</span></a>
+        <a href="brochure/full-6.jpg" target="_blank" rel="noopener"><img src="brochure/page-6.jpg" alt="Deepika live painting brochure — page 6" loading="lazy"><span class="view-chip">Tap to view full image</span></a>
+        <a href="brochure/full-7.jpg" target="_blank" rel="noopener"><img src="brochure/page-7.jpg" alt="Deepika live painting brochure — page 7" loading="lazy"><span class="view-chip">Tap to view full image</span></a>
       </div>
       <div style="text-align:center;margin:2px 0 8px">
         <a class="btn" href="brochure.pdf" download="Deepika-Live-Painting-Brochure.pdf">⬇ Download Brochure (PDF)</a>
