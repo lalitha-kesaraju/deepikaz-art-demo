@@ -216,6 +216,16 @@
   .brochure-strip img{width:min(82vw,400px);height:auto;border-radius:10px;border:1px solid #ecd9ac;box-shadow:0 4px 14px rgba(92,75,50,.18);display:block}
   a.btn{text-decoration:none}
   @media (max-width:560px){.hero h1{font-size:38px}.hero h1 span{font-size:26px}.tabnav button{padding:8px 12px;font-size:12.5px}}
+  #brochureViewer{position:fixed;inset:0;background:rgba(22,13,4,.97);z-index:1001;display:none;align-items:center;justify-content:center}
+  #brochureViewer.open{display:flex}
+  .bv-scroll{max-width:100%;max-height:100%;overflow:auto}
+  #bvImg{width:min(96vw,700px);height:auto;display:block;margin:auto}
+  #bvImg.zoomed{width:170vw;max-width:none}
+  .bv-close{position:absolute;top:8px;right:14px;background:none;border:none;color:#ffe9b0;font-size:36px;cursor:pointer;z-index:2;line-height:1}
+  .bv-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(43,29,5,.75);color:#ffe9b0;border:1px solid #b98a2f;width:42px;height:42px;border-radius:50%;font-size:24px;cursor:pointer;z-index:2}
+  #bvPrev{left:10px}
+  #bvNext{right:10px}
+  .bv-count{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);color:#ffe9b0;font-family:Arial,sans-serif;font-size:13px;background:rgba(43,29,5,.75);padding:4px 12px;border-radius:99px}
 </style>
 <script type="application/ld+json">
 {
@@ -346,13 +356,13 @@
         <a class="btn" href="brochure.pdf" download="Deepika-Live-Painting-Brochure.pdf">⬇ Download Brochure (PDF)</a>
       </div>
       <div class="brochure-strip" aria-label="Brochure pages">
-        <a href="brochure/full-1.jpg" target="_blank" rel="noopener"><img src="brochure/page-1.jpg" alt="Deepika live painting brochure — page 1" loading="lazy"></a>
-        <a href="brochure/full-2.jpg" target="_blank" rel="noopener"><img src="brochure/page-2.jpg" alt="Deepika live painting brochure — page 2" loading="lazy"></a>
-        <a href="brochure/full-3.jpg" target="_blank" rel="noopener"><img src="brochure/page-3.jpg" alt="Deepika live painting brochure — page 3" loading="lazy"></a>
-        <a href="brochure/full-4.jpg" target="_blank" rel="noopener"><img src="brochure/page-4.jpg" alt="Deepika live painting brochure — page 4" loading="lazy"></a>
-        <a href="brochure/full-5.jpg" target="_blank" rel="noopener"><img src="brochure/page-5.jpg" alt="Deepika live painting brochure — page 5" loading="lazy"></a>
-        <a href="brochure/full-6.jpg" target="_blank" rel="noopener"><img src="brochure/page-6.jpg" alt="Deepika live painting brochure — page 6" loading="lazy"></a>
-        <a href="brochure/full-7.jpg" target="_blank" rel="noopener"><img src="brochure/page-7.jpg" alt="Deepika live painting brochure — page 7" loading="lazy"></a>
+        <a href="brochure/full-1.jpg"><img src="brochure/page-1.jpg" alt="Deepika live painting brochure — page 1" loading="lazy"></a>
+        <a href="brochure/full-2.jpg"><img src="brochure/page-2.jpg" alt="Deepika live painting brochure — page 2" loading="lazy"></a>
+        <a href="brochure/full-3.jpg"><img src="brochure/page-3.jpg" alt="Deepika live painting brochure — page 3" loading="lazy"></a>
+        <a href="brochure/full-4.jpg"><img src="brochure/page-4.jpg" alt="Deepika live painting brochure — page 4" loading="lazy"></a>
+        <a href="brochure/full-5.jpg"><img src="brochure/page-5.jpg" alt="Deepika live painting brochure — page 5" loading="lazy"></a>
+        <a href="brochure/full-6.jpg"><img src="brochure/page-6.jpg" alt="Deepika live painting brochure — page 6" loading="lazy"></a>
+        <a href="brochure/full-7.jpg"><img src="brochure/page-7.jpg" alt="Deepika live painting brochure — page 7" loading="lazy"></a>
       </div>
       <div style="text-align:center;margin:2px 0 8px">
         <a class="btn" href="brochure.pdf" download="Deepika-Live-Painting-Brochure.pdf">⬇ Download Brochure (PDF)</a>
@@ -866,7 +876,7 @@
         <h3>Your enquiry is ready to send</h3>
         <div class="id" id="enqId"></div>
         <p id="confirmText" style="margin-top:6px;font-size:14px"></p>
-        <a class="wa-send" id="waSend" href="#" target="_blank" rel="noopener">Send this enquiry to Deepika on WhatsApp</a>
+        <a class="wa-send" id="waSend" href="#">Send this enquiry to Deepika on WhatsApp</a>
         <p style="font-size:13px;margin-top:8px">Deepika replies on WhatsApp herself and confirms your date personally. An advance then blocks the date — details in the brochure.</p>
       </div>
 
@@ -891,6 +901,14 @@
 </div>
 
 
+<div id="brochureViewer" role="dialog" aria-modal="true" aria-label="Brochure page viewer">
+  <button class="bv-close" id="bvClose" aria-label="Close">&times;</button>
+  <button class="bv-nav" id="bvPrev" aria-label="Previous page">&#8249;</button>
+  <div class="bv-scroll" id="bvScroll"><img id="bvImg" alt="Brochure page, full size"></div>
+  <button class="bv-nav" id="bvNext" aria-label="Next page">&#8250;</button>
+  <div class="bv-count" id="bvCount"></div>
+</div>
+
 <div id="lightbox" role="dialog" aria-modal="true" aria-label="Painting viewer">
   <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
   <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous painting">&#8249;</button>
@@ -901,7 +919,7 @@
       <span class="lb-cat" id="lbCat"></span>
       <p class="lb-cap" id="lbCap"></p>
       <div class="lb-actions">
-        <a id="lbIg" href="#" target="_blank" rel="noopener">See the original post on Instagram</a>
+        <a id="lbIg" href="#">See the original post on Instagram</a>
         <button class="btn small" id="lbEnquire" type="button">Enquire about a painting like this</button>
       </div>
     </figcaption>
@@ -979,6 +997,23 @@ document.getElementById('galleryFilters').addEventListener('click', function(e){
     card.classList.toggle('hidden', f !== 'all' && card.getAttribute('data-cat') !== f);
   });
 });
+
+/* ================= Brochure viewer ================= */
+(function(){
+  var links = document.querySelectorAll('.brochure-strip a');
+  var pages = Array.prototype.map.call(links, function(a){ return a.getAttribute('href'); });
+  var bv = document.getElementById('brochureViewer'), img = document.getElementById('bvImg'),
+      cnt = document.getElementById('bvCount'), sc = document.getElementById('bvScroll'), cur = 0;
+  function show(i){ cur = (i + pages.length) % pages.length; img.src = pages[cur]; img.classList.remove('zoomed'); sc.scrollTop = 0; sc.scrollLeft = 0; cnt.textContent = (cur + 1) + ' / ' + pages.length; }
+  function close(){ bv.classList.remove('open'); document.body.style.overflow = ''; }
+  links.forEach(function(a, i){ a.addEventListener('click', function(e){ e.preventDefault(); bv.classList.add('open'); document.body.style.overflow = 'hidden'; show(i); }); });
+  document.getElementById('bvClose').addEventListener('click', close);
+  bv.addEventListener('click', function(e){ if(e.target === bv) close(); });
+  document.getElementById('bvPrev').addEventListener('click', function(){ show(cur - 1); });
+  document.getElementById('bvNext').addEventListener('click', function(){ show(cur + 1); });
+  img.addEventListener('click', function(){ img.classList.toggle('zoomed'); });
+  document.addEventListener('keydown', function(e){ if(!bv.classList.contains('open')) return; if(e.key === 'Escape') close(); if(e.key === 'ArrowLeft') show(cur - 1); if(e.key === 'ArrowRight') show(cur + 1); });
+})();
 
 /* ================= Prices -> enquiry selection ================= */
 var PRICE_LABELS = {
@@ -1329,7 +1364,7 @@ document.getElementById('chatChips').addEventListener('click', function(e){
   if(e.target.tagName === 'BUTTON') askChat(e.target.textContent);
 });
 </script>
-<a class="wa-float" href="https://wa.me/917660834707?text=Hello%20Deepika%20mam%2C%20I%20found%20your%20website%20and%20have%20a%20question." target="_blank" rel="noopener" aria-label="Chat with Deepika on WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.2-.7l.5-.6c.1-.2.1-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg>Chat with Deepika</a>
+<a class="wa-float" href="https://wa.me/917660834707?text=Hello%20Deepika%20mam%2C%20I%20found%20your%20website%20and%20have%20a%20question." aria-label="Chat with Deepika on WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.2-.7l.5-.6c.1-.2.1-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg>Chat with Deepika</a>
 <script>
 /* Vercel Web Analytics — loads only on the Vercel deployment (hostname check keeps the GitHub Pages copy from requesting it) */
 if (/vercel\.app$/.test(location.hostname)) {
