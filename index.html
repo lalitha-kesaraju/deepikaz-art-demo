@@ -216,16 +216,15 @@
   .brochure-strip img{width:min(82vw,400px);height:auto;border-radius:10px;border:1px solid #ecd9ac;box-shadow:0 4px 14px rgba(92,75,50,.18);display:block}
   a.btn{text-decoration:none}
   @media (max-width:560px){.hero h1{font-size:38px}.hero h1 span{font-size:26px}.tabnav button{padding:8px 12px;font-size:12.5px}}
-  #brochureViewer{position:fixed;inset:0;background:rgba(22,13,4,.97);z-index:1001;display:none;align-items:center;justify-content:center}
+  #brochureViewer{position:fixed;inset:0;background:rgba(22,13,4,.97);z-index:1001;display:none;flex-direction:column;align-items:center;justify-content:center}
   #brochureViewer.open{display:flex}
-  .bv-scroll{max-width:100%;max-height:100%;overflow:auto}
+  .bv-scroll{flex:1;width:100%;overflow:auto;display:flex}
   #bvImg{width:min(96vw,700px);height:auto;display:block;margin:auto}
   #bvImg.zoomed{width:170vw;max-width:none}
   .bv-close{position:absolute;top:8px;right:14px;background:none;border:none;color:#ffe9b0;font-size:36px;cursor:pointer;z-index:2;line-height:1}
-  .bv-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(43,29,5,.75);color:#ffe9b0;border:1px solid #b98a2f;width:42px;height:42px;border-radius:50%;font-size:24px;cursor:pointer;z-index:2}
-  #bvPrev{left:10px}
-  #bvNext{right:10px}
-  .bv-count{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);color:#ffe9b0;font-family:Arial,sans-serif;font-size:13px;background:rgba(43,29,5,.75);padding:4px 12px;border-radius:99px}
+  .bv-nav{background:rgba(43,29,5,.75);color:#ffe9b0;border:1px solid #b98a2f;width:44px;height:44px;border-radius:50%;font-size:24px;cursor:pointer}
+  .bv-bar{display:flex;align-items:center;justify-content:center;gap:16px;width:100%;padding:12px 0 18px}
+  .bv-count{color:#ffe9b0;font-family:Arial,sans-serif;font-size:13.5px;background:rgba(43,29,5,.75);padding:5px 14px;border-radius:99px;min-width:52px;text-align:center}
 </style>
 <script type="application/ld+json">
 {
@@ -903,10 +902,12 @@
 
 <div id="brochureViewer" role="dialog" aria-modal="true" aria-label="Brochure page viewer">
   <button class="bv-close" id="bvClose" aria-label="Close">&times;</button>
-  <button class="bv-nav" id="bvPrev" aria-label="Previous page">&#8249;</button>
   <div class="bv-scroll" id="bvScroll"><img id="bvImg" alt="Brochure page, full size"></div>
-  <button class="bv-nav" id="bvNext" aria-label="Next page">&#8250;</button>
-  <div class="bv-count" id="bvCount"></div>
+  <div class="bv-bar">
+    <button class="bv-nav" id="bvPrev" aria-label="Previous page">&#8249;</button>
+    <div class="bv-count" id="bvCount"></div>
+    <button class="bv-nav" id="bvNext" aria-label="Next page">&#8250;</button>
+  </div>
 </div>
 
 <div id="lightbox" role="dialog" aria-modal="true" aria-label="Painting viewer">
