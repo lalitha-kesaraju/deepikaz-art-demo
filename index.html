@@ -498,13 +498,19 @@
         <h3>Canvas 24 × 30 in</h3>
         <div class="row" data-size="24x30 in — Classic"><span>Classic</span></div>
         <div class="row sel" data-size="24x30 in — Signature"><span>Signature <span class="pop">POPULAR</span></span></div>
-        <div class="row" data-size="24x30 in — Studio Touch"><span>Studio Touch <span class="pop">POPULAR</span></span></div>
-        <div class="row" data-size="24x30 in — Heirloom"><span>Heirloom</span></div>
+        <div class="row" data-size="24x30 in — Studio Refined Classic"><span>Studio Refined Classic</span></div>
+        <div class="row" data-size="24x30 in — Studio Refined Signature"><span>Studio Refined Signature</span></div>
+        <div class="row" data-size="24x30 in — Hybrid"><span>Hybrid</span></div>
         <h3>Canvas 24 × 36 in</h3>
         <div class="row" data-size="24x36 in — Classic"><span>Classic</span></div>
         <div class="row" data-size="24x36 in — Signature"><span>Signature <span class="pop">POPULAR</span></span></div>
-        <div class="row" data-size="24x36 in — Studio Touch"><span>Studio Touch <span class="pop">POPULAR</span></span></div>
-        <div class="row" data-size="24x36 in — Studio Touch+ / Heirloom"><span>Studio Touch+ / Heirloom</span></div>
+        <div class="row" data-size="24x36 in — Studio Refined Classic"><span>Studio Refined Classic</span></div>
+        <div class="row" data-size="24x36 in — Studio Refined Signature"><span>Studio Refined Signature</span></div>
+        <div class="row" data-size="24x36 in — Hybrid"><span>Hybrid</span></div>
+        <h3>Hybrid Painting</h3>
+        <div class="row" data-size="Hybrid painting — 20x24 in"><span>20 × 24 in</span></div>
+        <div class="row" data-size="Hybrid painting — 24x30 in"><span>24 × 30 in</span></div>
+        <div class="row" data-size="Hybrid painting — 24x36 in"><span>24 × 36 in</span></div>
       </div>
       <div class="sel-line">Selected for your enquiry: <b id="selSizeLabel">24x30 in — Signature</b></div>
       <div style="text-align:center;padding:12px 22px 0">
@@ -516,8 +522,9 @@
       <div class="steps">
         <div class="step"><b>Why Classic?</b><p>Minimal background work + good character work. Done and handed over on the spot.</p></div>
         <div class="step"><b>Why Signature?</b><p>Better background work + detailed character work. Done and handed over on the spot.</p></div>
-        <div class="step"><b>Why Studio Touch?</b><p>Detailed background work + detailed character work. Deepika takes the canvas to her studio for better detailing.</p></div>
-        <div class="step"><b>Why Heirloom?</b><p>Studio Touch + high detailing with rework. The flowers, decor and characters are reworked inch by inch in the studio from an HD pic by your photographer — even the jewels are re-done in minute work. A masterpiece of the moment.</p></div>
+        <div class="step"><b>Why Studio Refined Classic?</b><p>Detailed background work + detailed character work. Deepika takes the canvas to her studio for better detailing.</p></div>
+        <div class="step"><b>Why Studio Refined Signature?</b><p>Studio refined work + high detailing with rework. The flowers, decor and characters are reworked inch by inch in the studio from an HD pic by your photographer — even the jewels are re-done in minute work. A masterpiece of the moment.</p></div>
+        <div class="step"><b>Why Hybrid?</b><p>Deepika's hybrid painting format, offered in 20×24, 24×30 and 24×36. Mention Hybrid in your enquiry and she will walk you through how it works for your event.</p></div>
       </div>
 
       <div class="note">
@@ -527,7 +534,7 @@
       <h2 class="sec">What's included</h2>
       <div class="steps">
         <div class="step"><b><span class="n">1</span> Live painting</b><p>Your ceremony / key moment painted on canvas at the venue, in front of your guests.</p></div>
-        <div class="step"><b><span class="n">2</span> Studio finish</b><p>Higher finishes (Studio Touch and above) include extra studio detailing after the event.</p></div>
+        <div class="step"><b><span class="n">2</span> Studio finish</b><p>Higher finishes (Studio Refined and above) include extra studio detailing after the event.</p></div>
         <div class="step"><b><span class="n">3</span> Memories kept</b><p>A physical heirloom of the day — not just photos and video, but a painting made inside the moment.</p></div>
         <div class="step"><b><span class="n">4</span> Worldwide</b><p>60+ events painted, across India and worldwide. Share your city in the enquiry.</p></div>
       </div>
@@ -826,12 +833,17 @@ document.getElementById('galleryFilters').addEventListener('click', function(e){
 var PRICE_LABELS = {
   '24x30 in — Classic': '24x30 in — Classic',
   '24x30 in — Signature': '24x30 in — Signature',
-  '24x30 in — Studio Touch': '24x30 in — Studio Touch',
-  '24x30 in — Heirloom': '24x30 in — Heirloom',
+  '24x30 in — Studio Refined Classic': '24x30 in — Studio Refined Classic',
+  '24x30 in — Studio Refined Signature': '24x30 in — Studio Refined Signature',
+  '24x30 in — Hybrid': '24x30 in — Hybrid',
   '24x36 in — Classic': '24x36 in — Classic',
   '24x36 in — Signature': '24x36 in — Signature',
-  '24x36 in — Studio Touch': '24x36 in — Studio Touch',
-  '24x36 in — Studio Touch+ / Heirloom': '24x36 in — Studio Touch+ / Heirloom'
+  '24x36 in — Studio Refined Classic': '24x36 in — Studio Refined Classic',
+  '24x36 in — Studio Refined Signature': '24x36 in — Studio Refined Signature',
+  '24x36 in — Hybrid': '24x36 in — Hybrid',
+  'Hybrid painting — 20x24 in': 'Hybrid painting — 20x24 in',
+  'Hybrid painting — 24x30 in': 'Hybrid painting — 24x30 in',
+  'Hybrid painting — 24x36 in': 'Hybrid painting — 24x36 in'
 };
 var selSize = '24x30 in — Signature';
 function syncSize(){
