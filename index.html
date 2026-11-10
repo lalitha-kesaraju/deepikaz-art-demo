@@ -211,6 +211,11 @@
   .chat-in input{flex:1;border:none;padding:12px;font-size:14.5px;outline:none;width:auto}
   .chat-in button{background:var(--rose);color:#ffe9b0;border:none;padding:0 17px;font-size:15px;cursor:pointer}
   .foot-note{text-align:center;color:#cbb27a;font-family:Arial,sans-serif;font-size:11.5px;margin-top:12px;line-height:1.6}
+  .brochure-strip{display:flex;gap:12px;overflow-x:auto;padding:6px 22px 14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .brochure-strip a{flex:0 0 auto;scroll-snap-align:start}
+  .brochure-strip img{height:340px;width:auto;border-radius:10px;border:1px solid #ecd9ac;box-shadow:0 4px 14px rgba(92,75,50,.18);display:block}
+  a.btn{text-decoration:none}
+  @media (max-width:560px){.brochure-strip img{height:300px}}
   @media (max-width:560px){.hero h1{font-size:38px}.hero h1 span{font-size:26px}.tabnav button{padding:8px 12px;font-size:12.5px}}
 </style>
 <script type="application/ld+json">
@@ -298,7 +303,7 @@
     <nav class="tabnav" id="tabNav" aria-label="Site sections">
       <button data-tab="home" class="active">Home</button>
       <button data-tab="gallery">Gallery</button>
-      <button data-tab="prices">Live Painting &amp; Prices</button>
+      <button data-tab="prices">Live Painting</button>
       <button data-tab="play">Paint &amp; Play</button>
       <button data-tab="enquire">Enquire</button>
     </nav>
@@ -336,10 +341,28 @@
         </div>
       </div>
 
-      <h2 class="sec">How live painting works</h2>
+            <h2 class="sec">Live Painting Brochure</h2>
+      <p class="secsub">Deepika's complete brochure — prices, painting styles, hybrid paintings and how booking works. Swipe through the pages, tap any page to open the full brochure, or download it as a PDF.</p>
+      <div style="text-align:center;margin:4px 0 12px">
+        <a class="btn" href="brochure.pdf" download="Deepika-Live-Painting-Brochure.pdf">⬇ Download Brochure (PDF)</a>
+      </div>
+      <div class="brochure-strip" aria-label="Brochure pages">
+        <a href="brochure.pdf"><img src="brochure/page-1.jpg" alt="Deepika live painting brochure — page 1" loading="lazy"></a>
+        <a href="brochure.pdf"><img src="brochure/page-2.jpg" alt="Deepika live painting brochure — page 2" loading="lazy"></a>
+        <a href="brochure.pdf"><img src="brochure/page-3.jpg" alt="Deepika live painting brochure — page 3" loading="lazy"></a>
+        <a href="brochure.pdf"><img src="brochure/page-4.jpg" alt="Deepika live painting brochure — page 4" loading="lazy"></a>
+        <a href="brochure.pdf"><img src="brochure/page-5.jpg" alt="Deepika live painting brochure — page 5" loading="lazy"></a>
+        <a href="brochure.pdf"><img src="brochure/page-6.jpg" alt="Deepika live painting brochure — page 6" loading="lazy"></a>
+        <a href="brochure.pdf"><img src="brochure/page-7.jpg" alt="Deepika live painting brochure — page 7" loading="lazy"></a>
+      </div>
+      <div style="text-align:center;margin:2px 0 8px">
+        <a class="btn" href="brochure.pdf" download="Deepika-Live-Painting-Brochure.pdf">⬇ Download Brochure (PDF)</a>
+      </div>
+
+<h2 class="sec">How live painting works</h2>
       <p class="secsub">From first enquiry to a finished painting on your wall — this is the journey on your wedding day.</p>
       <div class="steps">
-        <div class="step"><b><span class="n">1</span> Enquire &amp; block your date</b><p>Send the enquiry with your date and city. A Rs 5,000 advance blocks Deepika's calendar for your day.</p></div>
+        <div class="step"><b><span class="n">1</span> Enquire &amp; block your date</b><p>Send the enquiry with your date and city. An advance blocks Deepika's calendar for your day (amount in the brochure).</p></div>
         <div class="step"><b><span class="n">2</span> She arrives early</b><p>Deepika reaches the venue 2–3 hours before the event, sets up her easel and paints the scene and decor first.</p></div>
         <div class="step"><b><span class="n">3</span> Painted live, 5–7 hours</b><p>As your celebration unfolds, the couple and the moment come alive on canvas — your guests watch it happen.</p></div>
         <div class="step"><b><span class="n">4</span> Handover</b><p>Studio finishing touches are added where needed, and the painting is handed over. Balance is paid on handover.</p></div>
@@ -658,22 +681,25 @@
 
     <!-- ================= PRICES ================= -->
     <section class="tabpage" id="page-prices">
-      <h2 class="sec">Live Painting &amp; Prices</h2>
-      <p class="secsub">Deepika's real price list, from her own brochure. Tap any size &amp; finish to select it — your selection carries straight into the enquiry form. All prices are plus travel to your venue.</p>
+      <h2 class="sec">Live Painting — Sizes &amp; Finishes</h2>
+      <p class="secsub">Tap any size &amp; finish to select it — your selection carries straight into the enquiry form. Prices live in Deepika's brochure, which she updates as they change — <a href="brochure.pdf" download="Deepika-Live-Painting-Brochure.pdf"><b>download the brochure (PDF)</b></a> for the current price list.</p>
 
       <div class="price-block" id="priceList">
         <h3>Canvas 24 × 30 in</h3>
-        <div class="row" data-size="24x30 in — Classic"><span>Classic</span><span>Rs 26,000+</span></div>
-        <div class="row sel" data-size="24x30 in — Signature"><span>Signature <span class="pop">POPULAR</span></span><span>Rs 30,000+</span></div>
-        <div class="row" data-size="24x30 in — Studio Touch"><span>Studio Touch <span class="pop">POPULAR</span></span><span>Rs 40,000+</span></div>
-        <div class="row" data-size="24x30 in — Heirloom"><span>Heirloom</span><span>Rs 75,000+</span></div>
+        <div class="row" data-size="24x30 in — Classic"><span>Classic</span></div>
+        <div class="row sel" data-size="24x30 in — Signature"><span>Signature <span class="pop">POPULAR</span></span></div>
+        <div class="row" data-size="24x30 in — Studio Touch"><span>Studio Touch <span class="pop">POPULAR</span></span></div>
+        <div class="row" data-size="24x30 in — Heirloom"><span>Heirloom</span></div>
         <h3>Canvas 24 × 36 in</h3>
-        <div class="row" data-size="24x36 in — Classic"><span>Classic</span><span>Rs 35,000</span></div>
-        <div class="row" data-size="24x36 in — Signature"><span>Signature <span class="pop">POPULAR</span></span><span>Rs 45,000</span></div>
-        <div class="row" data-size="24x36 in — Studio Touch"><span>Studio Touch <span class="pop">POPULAR</span></span><span>Rs 60,000</span></div>
-        <div class="row" data-size="24x36 in — Studio Touch+ / Heirloom"><span>Studio Touch+ / Heirloom</span><span>Rs 90,000</span></div>
+        <div class="row" data-size="24x36 in — Classic"><span>Classic</span></div>
+        <div class="row" data-size="24x36 in — Signature"><span>Signature <span class="pop">POPULAR</span></span></div>
+        <div class="row" data-size="24x36 in — Studio Touch"><span>Studio Touch <span class="pop">POPULAR</span></span></div>
+        <div class="row" data-size="24x36 in — Studio Touch+ / Heirloom"><span>Studio Touch+ / Heirloom</span></div>
       </div>
-      <div class="sel-line">Selected for your enquiry: <b id="selSizeLabel">24x30 in — Signature (Rs 30,000+)</b></div>
+      <div class="sel-line">Selected for your enquiry: <b id="selSizeLabel">24x30 in — Signature</b></div>
+      <div style="text-align:center;padding:12px 22px 0">
+        <a class="btn" href="brochure.pdf" download="Deepika-Live-Painting-Brochure.pdf">⬇ Download Brochure (PDF) — current prices inside</a>
+      </div>
 
       <h2 class="sec">Which finish should you pick?</h2>
       <p class="secsub">The question almost every couple asks Deepika — here it is in her own words, from her brochure.</p>
@@ -685,7 +711,7 @@
       </div>
 
       <div class="note">
-        <b>How booking works:</b> Rs 5,000 advance blocks your date, and the balance is paid on handover of the finished painting. On the day, Deepika arrives 2–3 hours early and paints live for 5–7 hours as your event unfolds. Travel to the venue is charged extra, at actuals. For custom paintings from a photo and workshop access, send an enquiry and she will confirm your exact quote.
+        <b>How booking works:</b> An advance blocks your date (amount in the brochure), and the balance is paid on handover of the finished painting. On the day, Deepika arrives 2–3 hours early and paints live for 5–7 hours as your event unfolds. Travel to the venue is charged extra, at actuals. For custom paintings from a photo and workshop access, send an enquiry and she will confirm your exact quote.
       </div>
 
       <h2 class="sec">What's included</h2>
@@ -813,7 +839,7 @@
     <section class="tabpage" id="page-enquire">
       <h2 class="sec">Check your date / enquire</h2>
       <p class="secsub">Wedding dates book out fast. Share your details below and your enquiry opens directly in Deepika's WhatsApp — she confirms every date personally. Your selected size from the Prices tab is carried in automatically.</p>
-      <div class="sel-line">Painting size selected: <b id="enqSizeDisplay">24x30 in — Signature (Rs 30,000+)</b> &nbsp;<button class="btn small secondary" data-goto="prices" type="button" style="padding:5px 11px">Change</button></div>
+      <div class="sel-line">Painting size selected: <b id="enqSizeDisplay">24x30 in — Signature</b> &nbsp;<button class="btn small secondary" data-goto="prices" type="button" style="padding:5px 11px">Change</button></div>
       <form id="enqForm">
         <label for="name">Your name</label>
         <input id="name" placeholder="e.g. Priya Sharma" autocomplete="name">
@@ -842,7 +868,7 @@
         <div class="id" id="enqId"></div>
         <p id="confirmText" style="margin-top:6px;font-size:14px"></p>
         <a class="wa-send" id="waSend" href="#" target="_blank" rel="noopener">Send this enquiry to Deepika on WhatsApp</a>
-        <p style="font-size:13px;margin-top:8px">Deepika replies on WhatsApp herself and confirms your date personally. A Rs 5,000 advance then blocks the date.</p>
+        <p style="font-size:13px;margin-top:8px">Deepika replies on WhatsApp herself and confirms your date personally. An advance then blocks the date — details in the brochure.</p>
       </div>
 
       <div class="panel">
@@ -957,14 +983,14 @@ document.getElementById('galleryFilters').addEventListener('click', function(e){
 
 /* ================= Prices -> enquiry selection ================= */
 var PRICE_LABELS = {
-  '24x30 in — Classic': '24x30 in — Classic (Rs 26,000+)',
-  '24x30 in — Signature': '24x30 in — Signature (Rs 30,000+)',
-  '24x30 in — Studio Touch': '24x30 in — Studio Touch (Rs 40,000+)',
-  '24x30 in — Heirloom': '24x30 in — Heirloom (Rs 75,000+)',
-  '24x36 in — Classic': '24x36 in — Classic (Rs 35,000)',
-  '24x36 in — Signature': '24x36 in — Signature (Rs 45,000)',
-  '24x36 in — Studio Touch': '24x36 in — Studio Touch (Rs 60,000)',
-  '24x36 in — Studio Touch+ / Heirloom': '24x36 in — Studio Touch+ / Heirloom (Rs 90,000)'
+  '24x30 in — Classic': '24x30 in — Classic',
+  '24x30 in — Signature': '24x30 in — Signature',
+  '24x30 in — Studio Touch': '24x30 in — Studio Touch',
+  '24x30 in — Heirloom': '24x30 in — Heirloom',
+  '24x36 in — Classic': '24x36 in — Classic',
+  '24x36 in — Signature': '24x36 in — Signature',
+  '24x36 in — Studio Touch': '24x36 in — Studio Touch',
+  '24x36 in — Studio Touch+ / Heirloom': '24x36 in — Studio Touch+ / Heirloom'
 };
 var selSize = '24x30 in — Signature';
 function syncSize(){
@@ -1019,13 +1045,13 @@ function waAdd(text, who){
   waBody.appendChild(d); waBody.scrollTop = waBody.scrollHeight;
 }
 function waBot(text){ setTimeout(function(){ waAdd(text, 'bot'); }, 450); }
-var WA_PRICES = 'Live wedding painting — Deepika\'s real price list:\n24x30 in: Classic Rs 26,000+ · Signature Rs 30,000+ · Studio Touch Rs 40,000+ · Heirloom Rs 75,000+\n24x36 in: Classic Rs 35,000 · Signature Rs 45,000 · Studio Touch Rs 60,000 · Studio Touch+ / Heirloom Rs 90,000\nAll prices plus travel. Rs 5,000 advance blocks your date, balance on handover.';
+var WA_PRICES = 'Deepika keeps her current prices in her brochure — she updates them from time to time. You can see all 7 pages and download the PDF from the Brochure section on the Home page of this website. All prices are plus travel to your venue.';
 document.getElementById('waBtns').addEventListener('click', function(e){
   var key = e.target.getAttribute('data-wa');
   if(!key) return;
   if(key === 'hi'){ waAdd('Hi', 'me'); waBot('Hello! Welcome to Deepikaz Art.\nHere are ready answers to the questions clients ask most:\n- Live wedding painting\n- Painting prices & sizes\n- The pre-recorded workshop\nTap a button below! For anything personal, Deepika replies herself on WhatsApp.'); }
   if(key === 'price'){ waAdd('Painting prices', 'me'); waBot(WA_PRICES + '\nFor a custom painting from your photo, send the photo on WhatsApp and Deepika will confirm your exact quote.'); }
-  if(key === 'wedding'){ waAdd('Wedding booking', 'me'); waBot('Wonderful! Wedding dates book out fast.\nShare your wedding date + city in the enquiry form above — it opens in Deepika\'s WhatsApp and she confirms your date personally. A Rs 5,000 advance holds the date; she arrives 2–3 hours early and paints live for 5–7 hours.'); }
+  if(key === 'wedding'){ waAdd('Wedding booking', 'me'); waBot('Wonderful! Wedding dates book out fast.\nShare your wedding date + city in the enquiry form above — it opens in Deepika\'s WhatsApp and she confirms your date personally. An advance holds the date; she arrives 2–3 hours early and paints live for 5–7 hours.'); }
   if(key === 'workshop'){ waAdd('Workshop', 'me'); waBot('The pre-recorded workshop lets you learn at your own pace.\nSend an enquiry and Deepika will share how to get access.'); }
 });
 waAdd('Hello! Tap "Say Hi" below to see the ready answers.', 'bot');
@@ -1264,7 +1290,7 @@ function cAdd(text, who){
   chatMsgs.appendChild(d); chatMsgs.scrollTop = chatMsgs.scrollHeight;
 }
 function cBot(text){ setTimeout(function(){ cAdd(text, 'bot'); }, 350); }
-var PRICE_TEXT = 'Live wedding painting prices (her real brochure list):\n24x30 in — Classic Rs 26,000+, Signature Rs 30,000+, Studio Touch Rs 40,000+, Heirloom Rs 75,000+\n24x36 in — Classic Rs 35,000, Signature Rs 45,000, Studio Touch Rs 60,000, Studio Touch+ / Heirloom Rs 90,000\nAll plus travel. Tap a size in the Live Painting & Prices tab and it carries into your enquiry automatically.';
+var PRICE_TEXT = 'Deepika keeps her current prices in her brochure (she updates them from time to time). See the Brochure section on the Home page of this website — all 7 pages are there, and you can download the full PDF. All prices plus travel.';
 function answer(q){
   var t = q.toLowerCase();
   if(t.indexOf('game') !== -1 || t.indexOf('play') !== -1 || t.indexOf('paint myself') !== -1)
@@ -1274,7 +1300,7 @@ function answer(q){
   if(t.indexOf('price') !== -1 || t.indexOf('cost') !== -1 || t.indexOf('custom') !== -1)
     return PRICE_TEXT + '\nFor a custom painting from your photo, the exact quote depends on size and detail — send an enquiry and Deepika confirms it.';
   if(t.indexOf('book') !== -1 || t.indexOf('enquire') !== -1 || t.indexOf('order') !== -1 || t.indexOf('how') !== -1)
-    return 'Use the Enquire tab — name, WhatsApp, service, date, city. Your enquiry opens in Deepika\'s own WhatsApp, and she confirms dates personally. A Rs 5,000 advance blocks your date and the balance is paid on handover of the painting.';
+    return 'Use the Enquire tab — name, WhatsApp, service, date, city. Your enquiry opens in Deepika\'s own WhatsApp, and she confirms dates personally. An advance blocks your date and the balance is paid on handover of the painting.';
   if(t.indexOf('travel') !== -1 || t.indexOf('city') !== -1 || t.indexOf('come') !== -1 || t.indexOf('location') !== -1 || t.indexOf('worldwide') !== -1)
     return 'Yes — Deepika paints at weddings across India and worldwide (travel is charged extra, at actuals). Mention your city in the enquiry and travel is arranged with the booking.';
   if(t.indexOf('workshop') !== -1 || t.indexOf('learn') !== -1 || t.indexOf('course') !== -1 || t.indexOf('class') !== -1)
