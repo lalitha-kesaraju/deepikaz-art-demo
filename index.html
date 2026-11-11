@@ -882,6 +882,12 @@ syncSize();
 
 /* ================= Enquiry form ================= */
 function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function fmtDate(iso){
+  if(!iso) return '';
+  var p = iso.split('-');
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return parseInt(p[2], 10) + ' ' + months[parseInt(p[1], 10) - 1] + ' ' + p[0];
+}
 document.getElementById('enqForm').addEventListener('submit', function(e){
   e.preventDefault();
   var name = document.getElementById('name').value.trim();
@@ -897,12 +903,12 @@ document.getElementById('enqForm').addEventListener('submit', function(e){
   var c = document.getElementById('confirm');
   c.style.display = 'block';
   document.getElementById('enqId').textContent = id;
-  document.getElementById('confirmText').textContent = name + ' · ' + service + ' · Size ' + (PRICE_LABELS[selSize] || selSize) + (date ? ' · ' + date : '') + (venue ? ' · ' + venue : '');
+  document.getElementById('confirmText').textContent = name + ' · ' + service + ' · Size ' + (PRICE_LABELS[selSize] || selSize) + (date ? ' · ' + fmtDate(date) : '') + (venue ? ' · ' + venue : '');
   var waMsg = 'Hello Deepika mam, I found your website and would like to enquire.\n'
     + 'Name: ' + name + '\n'
     + 'Service: ' + service + '\n'
     + 'Size: ' + (PRICE_LABELS[selSize] || selSize) + '\n'
-    + (date ? 'Event date: ' + date + '\n' : '')
+    + (date ? 'Event date: ' + fmtDate(date) + '\n' : '')
     + (venue ? 'City / venue: ' + venue + '\n' : '')
     + 'My WhatsApp number: ' + phone + '\n'
     + 'Enquiry ID: ' + id;
