@@ -704,7 +704,8 @@
               <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Andaman and Nicobar Islands</option><option>Chandigarh</option><option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option><option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option>
             </select></div>
           <div><label for="city">City</label>
-            <input id="city" placeholder="e.g. Coimbatore"></div>
+            <select id="city" disabled><option value="">Select state first</option></select>
+            <input id="cityOther" placeholder="Type your city" style="display:none;margin-top:8px"></div>
         </div>
         <label for="venue">Place / venue</label>
         <input id="venue" placeholder="e.g. The Leela Palace, MRC Nagar">
@@ -904,6 +905,61 @@ var MONTHS = ['January','February','March','April','May','June','July','August',
   var yr = new Date().getFullYear();
   for(var y = yr; y <= yr + 5; y++){ var oy = document.createElement('option'); oy.value = y; oy.textContent = y; ySel.appendChild(oy); }
 })();
+var CITIES = {
+  'Andhra Pradesh': ['Visakhapatnam','Vijayawada','Guntur','Nellore','Tirupati','Kurnool','Rajahmundry','Kakinada','Kadapa','Anantapur','Eluru','Machilipatnam'],
+  'Arunachal Pradesh': ['Itanagar','Naharlagun','Pasighat','Tawang'],
+  'Assam': ['Guwahati','Silchar','Dibrugarh','Jorhat','Nagaon','Tinsukia','Tezpur'],
+  'Bihar': ['Patna','Gaya','Bhagalpur','Muzaffarpur','Purnia','Darbhanga','Arrah','Begusarai'],
+  'Chhattisgarh': ['Raipur','Bhilai','Bilaspur','Korba','Durg','Raigarh','Rajnandgaon'],
+  'Goa': ['Panaji','Margao','Vasco da Gama','Mapusa','Ponda'],
+  'Gujarat': ['Ahmedabad','Surat','Vadodara','Rajkot','Bhavnagar','Jamnagar','Gandhinagar','Junagadh','Anand','Navsari'],
+  'Haryana': ['Gurugram','Faridabad','Panipat','Ambala','Karnal','Hisar','Rohtak','Sonipat','Panchkula','Yamunanagar'],
+  'Himachal Pradesh': ['Shimla','Manali','Dharamshala','Solan','Mandi','Kullu','Hamirpur','Una'],
+  'Jharkhand': ['Ranchi','Jamshedpur','Dhanbad','Bokaro','Hazaribagh','Deoghar','Giridih'],
+  'Karnataka': ['Bengaluru','Mysuru','Mangaluru','Hubballi','Belagavi','Kalaburagi','Davanagere','Ballari','Shivamogga','Tumakuru','Udupi','Vijayapura','Hassan','Raichur'],
+  'Kerala': ['Thiruvananthapuram','Kochi','Kozhikode','Thrissur','Kollam','Kannur','Alappuzha','Kottayam','Palakkad','Malappuram','Kasaragod'],
+  'Madhya Pradesh': ['Indore','Bhopal','Jabalpur','Gwalior','Ujjain','Sagar','Ratlam','Rewa','Satna','Dewas'],
+  'Maharashtra': ['Mumbai','Pune','Nagpur','Nashik','Thane','Chhatrapati Sambhajinagar','Solapur','Kolhapur','Amravati','Nanded','Jalgaon','Latur','Satara','Ahmednagar','Akola'],
+  'Manipur': ['Imphal','Thoubal','Kakching'],
+  'Meghalaya': ['Shillong','Tura','Jowai'],
+  'Mizoram': ['Aizawl','Lunglei','Champhai'],
+  'Nagaland': ['Kohima','Dimapur','Mokokchung'],
+  'Odisha': ['Bhubaneswar','Cuttack','Rourkela','Berhampur','Sambalpur','Puri','Balasore'],
+  'Punjab': ['Ludhiana','Amritsar','Jalandhar','Patiala','Bathinda','Mohali','Hoshiarpur','Pathankot'],
+  'Rajasthan': ['Jaipur','Jodhpur','Udaipur','Kota','Ajmer','Bikaner','Bhilwara','Alwar','Sikar','Pali'],
+  'Sikkim': ['Gangtok','Namchi','Gyalshing'],
+  'Tamil Nadu': ['Chennai','Coimbatore','Madurai','Tiruchirappalli','Salem','Tirunelveli','Tiruppur','Vellore','Erode','Thoothukudi','Thanjavur','Dindigul','Kanchipuram','Hosur','Nagercoil','Karur','Cuddalore'],
+  'Telangana': ['Hyderabad','Warangal','Nizamabad','Karimnagar','Khammam','Ramagundam','Mahbubnagar','Nalgonda','Adilabad','Siddipet','Miryalaguda','Jagtial'],
+  'Tripura': ['Agartala','Dharmanagar','Udaipur'],
+  'Uttar Pradesh': ['Lucknow','Kanpur','Agra','Varanasi','Prayagraj','Meerut','Ghaziabad','Noida','Aligarh','Bareilly','Gorakhpur','Moradabad','Jhansi','Mathura','Ayodhya'],
+  'Uttarakhand': ['Dehradun','Haridwar','Roorkee','Haldwani','Rishikesh','Kashipur'],
+  'West Bengal': ['Kolkata','Howrah','Durgapur','Asansol','Siliguri','Darjeeling','Malda','Kharagpur','Haldia'],
+  'Andaman and Nicobar Islands': ['Port Blair'],
+  'Chandigarh': ['Chandigarh'],
+  'Dadra and Nagar Haveli and Daman and Diu': ['Daman','Silvassa','Diu'],
+  'Delhi': ['New Delhi','Delhi'],
+  'Jammu and Kashmir': ['Srinagar','Jammu','Anantnag','Baramulla','Udhampur'],
+  'Ladakh': ['Leh','Kargil'],
+  'Lakshadweep': ['Kavaratti'],
+  'Puducherry': ['Puducherry','Karaikal','Mahe','Yanam']
+};
+(function(){
+  var st = document.getElementById('state'), ct = document.getElementById('city'), co = document.getElementById('cityOther');
+  st.addEventListener('change', function(){
+    ct.innerHTML = '';
+    co.style.display = 'none'; co.value = '';
+    var list = CITIES[st.value] || [];
+    if(!list.length){ ct.disabled = true; ct.innerHTML = '<option value="">Select state first</option>'; return; }
+    ct.disabled = false;
+    ct.innerHTML = '<option value="">Select city</option>';
+    list.forEach(function(c){ var o = document.createElement('option'); o.value = c; o.textContent = c; ct.appendChild(o); });
+    var oo = document.createElement('option'); oo.value = '__other'; oo.textContent = 'Other (type below)'; ct.appendChild(oo);
+  });
+  ct.addEventListener('change', function(){
+    if(ct.value === '__other'){ co.style.display = 'block'; co.focus(); }
+    else { co.style.display = 'none'; co.value = ''; }
+  });
+})();
 document.getElementById('enqForm').addEventListener('submit', function(e){
   e.preventDefault();
   var name = document.getElementById('name').value.trim();
@@ -911,12 +967,14 @@ document.getElementById('enqForm').addEventListener('submit', function(e){
   var service = document.getElementById('service').value;
   var dv = document.getElementById('evday').value, mv = document.getElementById('evmonth').value, yv = document.getElementById('evyear').value;
   var state = document.getElementById('state').value;
-  var city = document.getElementById('city').value.trim();
+  var citySel = document.getElementById('city').value;
+  var city = citySel === '__other' ? document.getElementById('cityOther').value.trim() : citySel;
   var venue = document.getElementById('venue').value.trim();
   var locText = [venue, city, state].filter(Boolean).join(', ');
   var err = document.getElementById('err');
   if(name.length < 2){ err.textContent = 'Please enter your name.'; err.style.display = 'block'; return; }
   if(phone.length !== 10){ err.textContent = 'Please enter a valid 10-digit WhatsApp number.'; err.style.display = 'block'; return; }
+  if(citySel === '__other' && !city){ err.textContent = 'Please type your city name.'; err.style.display = 'block'; return; }
   var dateLabel = '';
   if(dv || mv || yv){
     if(!(dv && mv && yv)){ err.textContent = 'Please select the full event date — day, month and year — or leave all three empty.'; err.style.display = 'block'; return; }
