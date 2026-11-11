@@ -697,8 +697,17 @@
               <select id="evyear"><option value="">Year</option></select>
             </div></div>
         </div>
-        <label for="venue">City / venue</label>
-        <input id="venue" placeholder="e.g. Chennai — The Leela Palace">
+        <div class="grid2">
+          <div><label for="state">State</label>
+            <select id="state">
+              <option value="">Select state</option>
+              <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Andaman and Nicobar Islands</option><option>Chandigarh</option><option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option><option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option>
+            </select></div>
+          <div><label for="city">City</label>
+            <input id="city" placeholder="e.g. Coimbatore"></div>
+        </div>
+        <label for="venue">Place / venue</label>
+        <input id="venue" placeholder="e.g. The Leela Palace, MRC Nagar">
         <div class="err" id="err"></div>
         <button class="cta" type="submit">Send enquiry</button>
       </form>
@@ -901,7 +910,10 @@ document.getElementById('enqForm').addEventListener('submit', function(e){
   var phone = document.getElementById('phone').value.replace(/\D/g,'').slice(-10);
   var service = document.getElementById('service').value;
   var dv = document.getElementById('evday').value, mv = document.getElementById('evmonth').value, yv = document.getElementById('evyear').value;
+  var state = document.getElementById('state').value;
+  var city = document.getElementById('city').value.trim();
   var venue = document.getElementById('venue').value.trim();
+  var locText = [venue, city, state].filter(Boolean).join(', ');
   var err = document.getElementById('err');
   if(name.length < 2){ err.textContent = 'Please enter your name.'; err.style.display = 'block'; return; }
   if(phone.length !== 10){ err.textContent = 'Please enter a valid 10-digit WhatsApp number.'; err.style.display = 'block'; return; }
@@ -917,13 +929,15 @@ document.getElementById('enqForm').addEventListener('submit', function(e){
   var c = document.getElementById('confirm');
   c.style.display = 'block';
   document.getElementById('enqId').textContent = id;
-  document.getElementById('confirmText').textContent = name + ' · ' + service + ' · Size ' + (PRICE_LABELS[selSize] || selSize) + (dateLabel ? ' · ' + dateLabel : '') + (venue ? ' · ' + venue : '');
+  document.getElementById('confirmText').textContent = name + ' · ' + service + ' · Size ' + (PRICE_LABELS[selSize] || selSize) + (dateLabel ? ' · ' + dateLabel : '') + (locText ? ' · ' + locText : '');
   var waMsg = 'Hello Deepika mam, I found your website and would like to enquire.\n'
     + 'Name: ' + name + '\n'
     + 'Service: ' + service + '\n'
     + 'Size: ' + (PRICE_LABELS[selSize] || selSize) + '\n'
     + (dateLabel ? 'Event date: ' + dateLabel + '\n' : '')
-    + (venue ? 'City / venue: ' + venue + '\n' : '')
+    + (state ? 'State: ' + state + '\n' : '')
+    + (city ? 'City: ' + city + '\n' : '')
+    + (venue ? 'Place / venue: ' + venue + '\n' : '')
     + 'My WhatsApp number: ' + phone + '\n'
     + 'Enquiry ID: ' + id;
   document.getElementById('waSend').href = 'https://wa.me/917660834707?text=' + encodeURIComponent(waMsg);
